@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+header {
+  background: #f4f7f6;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.logo-ondeco {
+  width: 38px;
+  height: auto;
+}
+
+.logo-texto {
+  font-size: 1.8rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.cor-verde {
+  color: #2E7D32;
+  font-weight: 500;
+}
+
+.cor-tech {
+  color: #1565C0;
+}
+
+.tagline {
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filtros input,
+.filtros select {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.grid-pontos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #2e7d32;
+}
+
+.card h3 {
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: #555;
+}
+
+.card .tag {
+  display: inline-block;
+  background: #e8f5e9;
+  color: #1b5e20;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Container que centraliza o símbolo e o nome */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  /* Centraliza no Header, se preferir */
+}
+
+/* Tamanho controlado do símbolo SVG */
+.logo-ondeco {
+  width: 40px;
+  height: auto;
+}
+
+/* Estilo do texto do nome do projeto */
+.logo-texto {
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  /* Leve para o OndEco */
+}
+
+/* Cores específicas do branding */
+.cor-verde {
+  color: #2E7D32;
+}
+
+.cor-tech {
+  color: #1565C0;
+}
+
+/* --- ESTILIZAÇÃO DOS CARDS E BOTÕES --- */
+
+/* Estilo do Card */
+.card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  border-top: 4px solid #1565C0;
+  /* Detalhe em Azul Tech */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  color: #1565C0;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.card p {
+  font-size: 0.92rem;
+  margin-bottom: 0.5rem;
+  color: #424242;
+  line-height: 1.4;
+}
+
+/* Badge / Tag da Categoria */
+.card .tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: #E8F5E9;
+  color: #2E7D32;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* Botão do Google Maps */
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #1565C0;
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  text-align: center;
+  margin-top: auto;
+}
+
+.btn-maps:hover {
+  background-color: #0D47A1;
+}

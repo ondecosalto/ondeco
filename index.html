@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OndEco Salto - Onde descartar certo em Salto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <!-- Símbolo SVG -->
+      <svg class="logo-ondeco" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10C33.43 10 20 23.43 20 40C20 62.5 50 110 50 110C50 110 80 62.5 80 40C80 23.43 66.57 10 50 10Z"
+          fill="#1565C0" />
+        <path d="M50 30C50 30 50.48 40.52 40 50L50 60C50 60 59.52 49.48 60 40C50.48 40.52 50 30 50 30Z"
+          fill="#2E7D32" />
+        <circle cx="50" cy="40" r="10" fill="white" fill-opacity="0.3" />
+      </svg>
+
+      <div class="logo-texto">
+        <span class="cor-verde">Ond</span><span class="cor-tech">Eco</span>
+        <strong class="cor-tech">Salto</strong>
+      </div>
+    </div>
+    <p class="tagline">Descubra onde descartar certo na nossa cidade</p>
+  </header>
+
+  <main class="container">
+    <section class="filtros">
+      <input type="text" id="inputBusca" placeholder="Busque por bairro ou material...">
+      <select id="selectCategoria">
+        <option value="todos">Todas as Categorias</option>
+        <option value="eletronicos">Eletrônicos e Baterias</option>
+        <option value="medicamentos">Medicamentos Vencidos</option>
+        <option value="oleo">Óleo de Cozinha</option>
+        <option value="reciclaveis">Recicláveis (Plástico/Papel/Lata)</option>
+      </select>
+    </section>
+
+    <section id="listaPontos" class="grid-pontos">
+      <!-- Os cards serão inseridos dinamicamente pelo JavaScript -->
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

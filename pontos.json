@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "nome": "Ecoponto Jardim Santa Cruz",
+    "bairro": "Jardim Santa Cruz",
+    "categoria": "eletronicos",
+    "endereco": "Av. dos Migrantes, 450",
+    "materiais": "Pilhas, baterias, eletrodomésticos pequenos e computadores",
+    "horario": "Segunda a Sábado, das 08:00 às 17:00",
+    "link_maps": "https://maps.google.com/?q=Av.+dos+Migrantes,+450,+Salto+-+SP"
+  },
+  {
+    "id": 2,
+    "nome": "Drogaria Central de Salto",
+    "bairro": "Centro",
+    "categoria": "medicamentos",
+    "endereco": "Rua 9 de Julho, 820",
+    "materiais": "Medicamentos vencidos, pomadas e cartelas de comprimidos",
+    "horario": "Segunda a Domingo, das 07:00 às 22:00",
+    "link_maps": "https://maps.google.com/?q=Rua+9+de+Julho,+820,+Salto+-+SP"
+  },
+  {
+    "id": 3,
+    "nome": "Cooperativa de Reciclagem - Ponto Óleo",
+    "bairro": "Jardim Planalto",
+    "categoria": "oleo",
+    "endereco": "Rua Rio Branco, 1200",
+    "materiais": "Óleo de cozinha usado (armazenado em garrafa PET)",
+    "horario": "Segunda a Sexta, das 08:00 às 16:30",
+    "link_maps": "https://maps.google.com/?q=Rua+Rio+Branco,+1200,+Salto+-+SP"
+  },
+  {
+    "id": 4,
+    "nome": "Ecoponto das Nações",
+    "bairro": "Jardim das Nações",
+    "categoria": "eletronicos",
+    "endereco": "Rua França, 310",
+    "materiais": "Televisores antigos, cabos, carregadores e lâmpadas LED",
+    "horario": "Segunda a Sábado, das 07:30 às 16:30",
+    "link_maps": "https://maps.google.com/?q=Rua+Franca,+310,+Salto+-+SP"
+  },
+  {
+    "id": 5,
+    "nome": "Supermercado do Bairro - Ponto Verde",
+    "bairro": "Estação",
+    "categoria": "reciclaveis",
+    "endereco": "Praça da Bandeira, 55",
+    "materiais": "Papelão, garrafas PET, latas de alumínio e plásticos duros",
+    "horario": "Segunda a Sábado, das 08:00 às 20:00",
+    "link_maps": "https://maps.google.com/?q=Praca+da+Bandeira,+55,+Salto+-+SP"
+  },
+  {
+    "id": 1,
+    "nome": "Supermercado Central - Coleta de Pilhas",
+    "bairro": "Centro",
+    "categoria": "eletronicos",
+    "endereco": "Rua das Flores, 123",
+    "materiais": "Pilhas, baterias e celulares velhos",
+    "horario": "08:00 às 22:00"
+  },
+  {
+    "id": 2,
+    "nome": "Drogaria Vida - Descarte de Medicamentos",
+    "bairro": "Jardins",
+    "categoria": "medicamentos",
+    "endereco": "Av. Principal, 456",
+    "materiais": "Remédios vencidos e cartelas usadas",
+    "horario": "24 horas"
+  },
+  {
+    "id": 3,
+    "nome": "Ecoponto Central - Salto",
+    "bairro": "Centro",
+    "categoria": "eletronicos",
+    "endereco": "Rua das Flores, 100",
+    "materiais": "E-lixo, pilhas e baterias",
+    "horario": "08:00 às 17:00"
+  }
+]
