@@ -71,21 +71,12 @@ function aplicarFiltros() {
 }
 
 // Eventos de escuta para filtrar em tempo real
-// 1. Quando o usuário digita na busca, resetamos a categoria para "todos" e filtramos
-document.getElementById('inputBusca').addEventListener('input', () => {
-  if (document.getElementById('inputBusca').value.trim() !== '') {
-    document.getElementById('selectCategoria').value = 'todos';
-  }
-  aplicarFiltros();
-});
 
-// 2. Quando o usuário escolhe uma categoria no menu, limpamos o texto da busca e filtramos
-document.getElementById('selectCategoria').addEventListener('change', () => {
-  if (document.getElementById('selectCategoria').value !== 'todos') {
-    document.getElementById('inputBusca').value = '';
-  }
-  aplicarFiltros();
-});
+// Quando o usuário digita na busca, aplica os filtros
+document.getElementById('inputBusca').addEventListener('input', aplicarFiltros);
+
+// Quando o usuário escolhe uma categoria, aplica os filtros
+document.getElementById('selectCategoria').addEventListener('change', aplicarFiltros);
 
 // Inicia o carregamento
-carregarPontos();
+carregarPontos()
