@@ -4,33 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OndEco Salto - Onde descartar certo em Salto</title>
+  <title>OndEco Salto - O lugar certo para cada resíduo</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
   <header>
     <div class="logo-container">
-      <!-- Símbolo SVG -->
-      <svg class="logo-ondeco" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 10C33.43 10 20 23.43 20 40C20 62.5 50 110 50 110C50 110 80 62.5 80 40C80 23.43 66.57 10 50 10Z"
-          fill="#1565C0" />
-        <path d="M50 30C50 30 50.48 40.52 40 50L50 60C50 60 59.52 49.48 60 40C50.48 40.52 50 30 50 30Z"
-          fill="#2E7D32" />
-        <circle cx="50" cy="40" r="10" fill="white" fill-opacity="0.3" />
-      </svg>
-
-      <div class="logo-texto">
-        <span class="cor-verde">Ond</span><span class="cor-tech">Eco</span>
-        <strong class="cor-tech">Salto</strong>
+      <div class="logo-main">
+        <img src="/assets/img/logo-icone.png" alt="Logo ondEco" class="logo-ondeco">
+        <h1 class="logo-texto">ondEco</h1>
       </div>
+      <p class="tagline">O lugar certo para cada resíduo</p>
     </div>
-    <p class="tagline">Descubra onde descartar certo na nossa cidade</p>
   </header>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <section class="filtros">
+      <label for="inputBusca" class="sr-only">Buscar ecoponto por bairro ou material</label>
       <input type="text" id="inputBusca" placeholder="Busque por bairro ou material...">
+      <label for="selectCategoria" class="sr-only">Filtrar por categoria de resíduo</label>
       <select id="selectCategoria">
         <option value="todos">Todas as Categorias</option>
         <option value="eletronicos">Eletrônicos e Baterias</option>
@@ -41,9 +41,20 @@
     </section>
 
     <section id="listaPontos" class="grid-pontos">
-      <!-- Os cards serão inseridos dinamicamente pelo JavaScript -->
+      <!-- Os cards são inseridos dinamicamente pelo JavaScript -->
     </section>
   </main>
+
+  <footer>
+    <div class="footer-container">
+      <p class="footer-texto">
+        <strong>ondEco Salto</strong> &copy; 2026 — Projeto de Extensão IFSP Câmpus Salto
+      </p>
+      <p class="footer-subtexto">
+        Promovendo o descarte consciente e a sustentabilidade na comunidade saltense.
+      </p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

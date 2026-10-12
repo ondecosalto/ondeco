@@ -1,64 +1,90 @@
+:root {
+  --verde-escuro: #245C43;
+  --verde-claro: #8BBF8A;
+  --verde-palido: #E7F1E8;
+  --branco: #FFFFFF;
+  --texto-escuro: #1C3328;
+  --texto-mutado: #556B60;
+  --fonte-principal: 'Open Sans', sans-serif;
+  --fonte-logo: 'Outfit', sans-serif;
+  --radius-card: 0.75rem;
+  --radius-btn: 0.5rem;
+  --borda-suave: 1px solid #D8E6DA;
+  --sombra-card: 0 4px 12px rgba(36, 92, 67, 0.08);
+}
+
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: var(--fonte-principal);
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #f4f7f6;
-  color: #333;
-}
-
-header {
-  background: #f4f7f6;
-  text-align: center;
-  padding: 1.5rem 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.logo-ondeco {
-  width: 38px;
-  height: auto;
-}
-
-.logo-texto {
-  font-size: 1.8rem;
-  font-family: system-ui, -apple-system, sans-serif;
-  letter-spacing: -0.5px;
-}
-
-.cor-verde {
-  color: #2E7D32;
-  font-weight: 500;
-}
-
-.cor-tech {
-  color: #1565C0;
-}
-
-.tagline {
-  color: #666;
-  font-size: 0.95rem;
-  margin-top: 6px;
+  background-color: var(--verde-palido);
+  color: var(--texto-escuro);
 }
 
 .container {
-  max-width: 900px;
-  margin: 2rem auto;
+  max-width: 56.25rem;
+  margin: 2rem auto 3rem;
   padding: 0 1rem;
 }
 
+/* HEADER */
+header {
+  background: var(--branco);
+  padding: 2.5rem 1rem 1.8rem;
+  box-shadow: 0 2px 10px rgba(36, 92, 67, 0.05);
+  display: flex;
+  justify-content: center;
+}
+
+.logo-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-main {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.logo-ondeco {
+  height: 8.5rem;
+  width: auto;
+  display: block;
+}
+
+.logo-texto {
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: var(--verde-escuro);
+  letter-spacing: -0.075rem;
+  line-height: 1;
+  margin: 0;
+}
+
+.logo-texto, .tagline {
+  font-family: var(--fonte-logo);
+}
+
+.tagline {
+  color: var(--verde-claro);
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-top: -2.25rem;
+  padding-left: calc(5.5rem + 12px);
+  letter-spacing: -0.0125rem;
+  text-align: left;
+}
+
+/* FILTROS E BUSCA */
 .filtros {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
@@ -66,92 +92,80 @@ header {
 .filtros input,
 .filtros select {
   flex: 1;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 0.75rem;
+  border: var(--borda-suave);
+  border-radius: var(--radius-btn);
   font-size: 1rem;
-  min-width: 200px;
+  min-width: 12.5rem;
+  background-color: var(--branco);
+  color: var(--texto-escuro);
+  outline: none;
+  transition: border-color 0.2s ease;
 }
 
+.filtros input:focus,
+.filtros select:focus {
+  border-color: var(--verde-escuro);
+}
+
+/* ACESSIBILIDADE E NAVEGAÇÃO POR TECLADO */
+
+/* Esconde elementos visualmente mantendo a leitura para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Link para pular direto ao conteúdo */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--verde-escuro);
+  color: var(--branco);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-btn);
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: 700;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 3px solid var(--verde-claro);
+}
+
+/* Foco Visível para Navegação via Teclado (Tab) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--verde-escuro) !important;
+  outline-offset: 2px;
+}
+
+/* GRID E CARDS DE ECOPONTOS */
 .grid-pontos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  gap: 1.25rem;
 }
 
 .card {
-  background: white;
+  background: var(--branco);
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-left: 5px solid #2e7d32;
-}
-
-.card h3 {
-  color: #2e7d32;
-  margin-bottom: 0.5rem;
-}
-
-.card p {
-  font-size: 0.9rem;
-  margin-bottom: 0.4rem;
-  color: #555;
-}
-
-.card .tag {
-  display: inline-block;
-  background: #e8f5e9;
-  color: #1b5e20;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  margin-top: 0.5rem;
-}
-
-/* Container que centraliza o símbolo e o nome */
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-  /* Centraliza no Header, se preferir */
-}
-
-/* Tamanho controlado do símbolo SVG */
-.logo-ondeco {
-  width: 40px;
-  height: auto;
-}
-
-/* Estilo do texto do nome do projeto */
-.logo-texto {
-  font-family: sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  /* Leve para o OndEco */
-}
-
-/* Cores específicas do branding */
-.cor-verde {
-  color: #2E7D32;
-}
-
-.cor-tech {
-  color: #1565C0;
-}
-
-/* --- ESTILIZAÇÃO DOS CARDS E BOTÕES --- */
-
-/* Estilo do Card */
-.card {
-  background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e0e0e0;
-  border-top: 4px solid #1565C0;
-  /* Detalhe em Azul Tech */
+  border-radius: var(--radius-card);
+  box-shadow: var(--sombra-card);
+  border: var(--borda-suave);
+  border-top: 5px solid var(--verde-escuro);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -159,34 +173,36 @@ header {
 }
 
 .card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(36, 92, 67, 0.15);
 }
 
 .card h3 {
-  color: #1565C0;
+  color: var(--verde-escuro);
   font-size: 1.2rem;
+  font-weight: 700;
   margin-bottom: 0.8rem;
 }
 
 .card p {
   font-size: 0.92rem;
   margin-bottom: 0.5rem;
-  color: #424242;
+  color: var(--texto-escuro);
   line-height: 1.4;
 }
 
-/* Badge / Tag da Categoria */
+/* Badge / Tag do Resíduo */
 .card .tag {
   display: inline-block;
   align-self: flex-start;
-  background: #E8F5E9;
-  color: #2E7D32;
-  padding: 6px 12px;
-  border-radius: 20px;
+  background-color: var(--verde-palido);
+  color: var(--verde-escuro);
+  border: 1px solid var(--verde-claro);
+  padding: 0.375rem 0.75rem;
+  border-radius: 1.25rem;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.031rem;
   margin-top: 0.8rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
@@ -197,19 +213,100 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  background-color: #1565C0;
-  color: #ffffff !important;
+  gap: 0.5rem;
+  background-color: var(--verde-escuro);
+  color: var(--branco) !important;
   text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-btn);
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   transition: background-color 0.2s ease;
   text-align: center;
   margin-top: auto;
 }
 
 .btn-maps:hover {
-  background-color: #0D47A1;
+  background-color: #1a4331;
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--branco);
+  border-top: var(--borda-suave);
+  padding: 2rem 1rem;
+  margin-top: 3rem; /* Garante que o footer fique afastado dos cards */
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 56.25rem;
+  margin: 0 auto;
+}
+
+.footer-texto {
+  font-size: 0.9rem;
+  color: var(--texto-escuro);
+  margin-bottom: 0.35rem;
+}
+
+.footer-subtexto {
+  font-size: 0.8rem;
+  color: var(--texto-mutado);
+}
+
+/* Tablets e Celulares (até 768px) */
+@media (max-width: 48rem) {
+  header {
+    padding: 1.5rem 1rem 1.2rem;
+  }
+
+  .logo-ondeco {
+    height: 6rem;
+  }
+
+  .logo-texto {
+    font-size: 3rem;
+  }
+
+  .tagline {
+    font-size: 0.875rem;
+    margin-top: -1.75rem;
+    padding-left: calc(4rem + 0.5rem);
+  }
+}
+
+/* Smartphones pequenos (até 480px) */
+@media (max-width: 30rem) {
+  .logo-main {
+    gap: 0.25rem;
+  }
+
+  .logo-ondeco {
+    height: 4.5rem;
+  }
+
+  .logo-texto {
+    font-size: 2.25rem;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+    margin-top: -1.25rem;
+    padding-left: calc(3rem + 0.35rem);
+  }
+
+  .filtros {
+    flex-direction: column;
+  }
+
+  .filtros input,
+  .filtros select {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .grid-pontos {
+    grid-template-columns: 1fr; /* 1 card por linha no celular */
+  }
 }
