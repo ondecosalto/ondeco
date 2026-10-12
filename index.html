@@ -8,27 +8,31 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
   <link rel="icon" href="/assets/img/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 </head>
 
 <body>
-<header>
-  <div class="logo-container">
-    <div class="logo-main">
-      <img src="/assets/img/logo-icone.png" alt="Logo ondEco" class="logo-ondeco">
-      <h1 class="logo-texto">ondEco</h1>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+  <header>
+    <div class="logo-container">
+      <div class="logo-main">
+        <img src="/assets/img/logo-icone.png" alt="Logo ondEco" class="logo-ondeco">
+        <h1 class="logo-texto">ondEco</h1>
+      </div>
+      <p class="tagline">O lugar certo para cada resíduo</p>
     </div>
-    <p class="tagline">O lugar certo para cada resíduo</p>
-  </div>
-</header>
+  </header>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <section class="filtros">
+      <label for="inputBusca" class="sr-only">Buscar ecoponto por bairro ou material</label>
       <input type="text" id="inputBusca" placeholder="Busque por bairro ou material...">
-      <select id="selectCategoria">
+      <label for="selectCategoria" class="sr-only">Filtrar por categoria de resíduo</label>
+      <select id="selectCategoria"></select>
         <option value="todos">Todas as Categorias</option>
         <option value="eletronicos">Eletrônicos e Baterias</option>
         <option value="medicamentos">Medicamentos Vencidos</option>
@@ -41,6 +45,17 @@
       <!-- Os cards são inseridos dinamicamente pelo JavaScript -->
     </section>
   </main>
+
+  <footer>
+    <div class="footer-container">
+      <p class="footer-texto">
+        <strong>ondEco Salto</strong> &copy; 2026 — Projeto de Extensão IFSP Câmpus Salto
+      </p>
+      <p class="footer-subtexto">
+        Promovendo o descarte consciente e a sustentabilidade na comunidade saltense.
+      </p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

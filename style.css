@@ -6,8 +6,8 @@
   --texto-escuro: #1C3328;
   --texto-mutado: #556B60;
   --fonte-principal: 'Open Sans', sans-serif;
-  --radius-card: 12px;
-  --radius-btn: 8px;
+  --radius-card: 0.75rem;
+  --radius-btn: 0.5rem;
   --borda-suave: 1px solid #D8E6DA;
   --sombra-card: 0 4px 12px rgba(36, 92, 67, 0.08);
 }
@@ -25,8 +25,8 @@ body {
 }
 
 .container {
-  max-width: 900px;
-  margin: 2rem auto;
+  max-width: 56.25rem;
+  margin: 2rem auto 3rem;
   padding: 0 1rem;
 }
 
@@ -48,7 +48,7 @@ header {
 .logo-main {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .logo-ondeco {
@@ -61,7 +61,7 @@ header {
   font-size: 3.8rem;
   font-weight: 750;
   color: var(--verde-escuro);
-  letter-spacing: -1.2px;
+  letter-spacing: -0.075rem;
   line-height: 1;
   margin: 0;
 }
@@ -72,14 +72,14 @@ header {
   font-weight: 400;
   margin-top: -2.25rem;
   padding-left: calc(5.5rem + 12px);
-  letter-spacing: -0.2px;
+  letter-spacing: -0.0125rem;
   text-align: left;
 }
 
 /* FILTROS E BUSCA */
 .filtros {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
@@ -87,11 +87,11 @@ header {
 .filtros input,
 .filtros select {
   flex: 1;
-  padding: 12px;
+  padding: 0.75rem;
   border: var(--borda-suave);
   border-radius: var(--radius-btn);
   font-size: 1rem;
-  min-width: 200px;
+  min-width: 12.5rem;
   background-color: var(--branco);
   color: var(--texto-escuro);
   outline: none;
@@ -103,11 +103,55 @@ header {
   border-color: var(--verde-escuro);
 }
 
+/* ACESSIBILIDADE E NAVEGAÇÃO POR TECLADO */
+
+/* Esconde elementos visualmente mantendo a leitura para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Link para pular direto ao conteúdo */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--verde-escuro);
+  color: var(--branco);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-btn);
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: 700;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 3px solid var(--verde-claro);
+}
+
+/* Foco Visível para Navegação via Teclado (Tab) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--verde-escuro) !important;
+  outline-offset: 2px;
+}
+
 /* GRID E CARDS DE ECOPONTOS */
 .grid-pontos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  gap: 1.25rem;
 }
 
 .card {
@@ -149,11 +193,11 @@ header {
   background-color: var(--verde-palido);
   color: var(--verde-escuro);
   border: 1px solid var(--verde-claro);
-  padding: 6px 12px;
-  border-radius: 20px;
+  padding: 0.375rem 0.75rem;
+  border-radius: 1.25rem;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.031rem;
   margin-top: 0.8rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
@@ -164,11 +208,11 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
   background-color: var(--verde-escuro);
   color: var(--branco) !important;
   text-decoration: none;
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   border-radius: var(--radius-btn);
   font-size: 0.9rem;
   font-weight: 700;
@@ -179,4 +223,85 @@ header {
 
 .btn-maps:hover {
   background-color: #1a4331;
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--branco);
+  border-top: var(--borda-suave);
+  padding: 2rem 1rem;
+  margin-top: 3rem; /* Garante que o footer fique afastado dos cards */
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 56.25rem;
+  margin: 0 auto;
+}
+
+.footer-texto {
+  font-size: 0.9rem;
+  color: var(--texto-escuro);
+  margin-bottom: 0.35rem;
+}
+
+.footer-subtexto {
+  font-size: 0.8rem;
+  color: var(--texto-mutado);
+}
+
+/* Tablets e Celulares (até 768px) */
+@media (max-width: 48rem) {
+  header {
+    padding: 1.5rem 1rem 1.2rem;
+  }
+
+  .logo-ondeco {
+    height: 6rem;
+  }
+
+  .logo-texto {
+    font-size: 3rem;
+  }
+
+  .tagline {
+    font-size: 0.875rem;
+    margin-top: -1.75rem;
+    padding-left: calc(4rem + 0.5rem);
+  }
+}
+
+/* Smartphones pequenos (até 480px) */
+@media (max-width: 30rem) {
+  .logo-main {
+    gap: 0.25rem;
+  }
+
+  .logo-ondeco {
+    height: 4.5rem;
+  }
+
+  .logo-texto {
+    font-size: 2.25rem;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+    margin-top: -1.25rem;
+    padding-left: calc(3rem + 0.35rem);
+  }
+
+  .filtros {
+    flex-direction: column;
+  }
+
+  .filtros input,
+  .filtros select {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .grid-pontos {
+    grid-template-columns: 1fr; /* 1 card por linha no celular */
+  }
 }
