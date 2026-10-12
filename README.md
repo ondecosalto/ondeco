@@ -4,7 +4,21 @@
 ![Curso](https://img.shields.io/badge/Curso-ADS%20IFSP%20Salto-blue)
 ![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-orange)
 
-> **Projeto de Extensão Acadêmica** desenvolvido pelos alunos do curso de Análise e Desenvolvimento de Sistemas (ADS) do **Instituto Federal de São Paulo (IFSP) — Câmpus Salto**.
+> **Projeto de Extensão Acadêmica** desenvolvido pelos alunos do curso de Análise e Desenvolvimento de Sistemas (ADS) do **Instituto Federal de São Paulo (IFSP) — Campus Salto**.
+
+---
+
+## Status Atual do Projeto
+
+> **Sprint Atual:** Finalização de Interface e Ingestão de Dados  
+> **Última Atualização:** 11/10/2026
+
+- [x] **Arquitetura Base:** Estruturação HTML5 semântica e CSS3 responsivo.
+- [x] **Acessibilidade Digital:** Adequação WCAG 2.1 AA / e-MAG (unidades `rem`, *Skip Link*, `.sr-only` e foco visível).
+- [x] **Mobile First & Layout:** Implementação de regras de visualização fluida em dispositivos móveis.
+- [ ] **Integração do JSON:** Estruturação e povoamento final do arquivo `pontos.json` (Em andamento pela equipe de Pesquisa).
+- [ ] **Lógica de Filtros (JS):** Algoritmo de busca por bairro/categoria e anúncios `aria-live` (Em andamento pelo Front-End/JS).
+- [ ] **Deploy GitHub Pages:** Publicação da versão final para a comunidade.
 
 ---
 
@@ -17,6 +31,16 @@ O **OndEco Salto** é uma solução web *Mobile First* desenvolvida para facilit
 - **Filtros por Categoria:** Seleção rápida para Eletrônicos, Medicamentos, Óleo de Cozinha e Recicláveis.
 - **Rotas Diretas:** Cards informativos integrados ao **Google Maps** para traçar rotas com um clique.
 - **Arquitetura Serverless:** Execução 100% *client-side*, sem necessidade de instalação ou servidor *back-end* complexo.
+
+---
+
+## Acessibilidade e Inclusão Digital (WCAG 2.1 AA / e-MAG)
+
+A interface do OndEco Salto foi projetada sob as diretrizes de acessibilidade do Governo Federal (e-MAG) e da W3C:
+* **Escalabilidade (`rem`):** Dimensionamento relativo para suportar zoom nativo de navegador sem quebra de *layout*.
+* **Navegação por Teclado:** Suporte a atalhos com `:focus-visible` destacado (`3px` em alto contraste).
+* **Atalho de Conteúdo (*Skip Link*):** Mecanismo para saltar o cabeçalho e ir diretamente aos filtros (`#main-content`).
+* **Suporte a Leitores de Tela:** Inclusão de rótulos descritivos ocultos visualmente via `.sr-only`.
 
 ---
 
@@ -52,4 +76,24 @@ O projeto está enquadrado nas diretrizes de extensão universitária do Minist�
 **Instituto Federal de Educação, Ciência e Tecnologia de São Paulo (IFSP) — Câmpus Salto**  
 *Curso:* Análise e Desenvolvimento de Sistemas (ADS)  
 *Semestre:* 1º Semestre / 2026  
-*Evento:* Socialização na **IFCIÊNCIA 2026** (22/10/2026 — Sala D-110)
+*Evento:* Socialização na **IFCIÊNCIA 2026** (22/10/2026 — Sala D-112)
+
+---
+
+## Como Executar o Projeto Localmente
+
+1. Clone este repositório:
+   ```bash
+   git clone [https://github.com/seu-usuario/ondeco-salto.git](https://github.com/seu-usuario/ondeco-salto.git)```
+2. Acesse a pasta do projeto:
+`cd ondeco-salto`
+
+3. Abra o arquivo `index.html` em seu navegador ou utilize a extensão Live Server do VS Code.
+
+---
+
+## Histórico de Atualizações (Changelog)
+
+- **xx/10/2026:** Finalização do pontos.json com 12 ecopontos de Salto (Isabella e Rafael).
+- **11/10/2026:** Refatoração de CSS para rem, acréscimo de Skip Link e acessibilidade (Naomi).
+- **08/10/2026:** Estruturação da base HTML/CSS do projeto (Naomi).
