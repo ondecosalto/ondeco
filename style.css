@@ -6,6 +6,7 @@
   --texto-escuro: #1C3328;
   --texto-mutado: #556B60;
   --fonte-principal: 'Open Sans', sans-serif;
+  --fonte-logo: 'Outfit', sans-serif;
   --radius-card: 0.75rem;
   --radius-btn: 0.5rem;
   --borda-suave: 1px solid #D8E6DA;
@@ -59,11 +60,15 @@ header {
 
 .logo-texto {
   font-size: 3.8rem;
-  font-weight: 750;
+  font-weight: 700;
   color: var(--verde-escuro);
   letter-spacing: -0.075rem;
   line-height: 1;
   margin: 0;
+}
+
+.logo-texto, .tagline {
+  font-family: var(--fonte-logo);
 }
 
 .tagline {

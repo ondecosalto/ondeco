@@ -63,3 +63,19 @@ Utilizamos mensagens padronizadas para facilitar o rastreamento de melhorias e c
 1. **Testes Antes do PR:** Sempre valide o funcionamento do código localmente no navegador antes de abrir o Pull Request.
 2. **Commits Atômicos:** Faça commits pequenos e focados em uma única tarefa.
 3. **Respeito ao Layout Base:** Mantenha os padrões estéticos definidos para o protótipo *Mobile First*.
+
+---
+
+## 5. Guia Prático: Como atualizar o README
+
+Para manter o arquivo atualizado, a equipe utilizará **apenas duas seções**:
+
+1. **Na Seção `Status Atual do Projeto`:**
+   - **Para marcar como concluído:** Mude `- [ ]` para `- [x]`.
+   - **Para atualizar a data:** Altere o valor de `Última Atualização: DD/MM/AAAA`.
+2. **Na Seção `Histórico de Atualizações (Changelog)`:**
+   - Adicione uma nova linha no topo da lista a cada grande atualização ou *PR* aprovada:
+     ```markdown
+     - **DD/MM/AAAA:** Descrição curta da melhoria efetuada (Nome do Membro).
+     ```
+
