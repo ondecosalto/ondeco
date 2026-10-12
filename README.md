@@ -78,3 +78,22 @@ O projeto está enquadrado nas diretrizes de extensão universitária do Minist�
 *Semestre:* 1º Semestre / 2026  
 *Evento:* Socialização na **IFCIÊNCIA 2026** (22/10/2026 — Sala D-112)
 
+---
+
+## Como Executar o Projeto Localmente
+
+1. Clone este repositório:
+   ```bash
+   git clone [https://github.com/seu-usuario/ondeco-salto.git](https://github.com/seu-usuario/ondeco-salto.git)```
+2. Acesse a pasta do projeto:
+`cd ondeco-salto`
+
+3. Abra o arquivo `index.html` em seu navegador ou utilize a extensão Live Server do VS Code.
+
+---
+
+## Histórico de Atualizações (Changelog)
+
+- **xx/10/2026:** Finalização do pontos.json com 12 ecopontos de Salto (Isabella e Rafael).
+- **11/10/2026:** Refatoração de CSS para rem, acréscimo de Skip Link e acessibilidade (Naomi).
+- **08/10/2026:** Estruturação da base HTML/CSS do projeto (Naomi).
