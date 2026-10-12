@@ -94,6 +94,7 @@ O projeto está enquadrado nas diretrizes de extensão universitária do Minist�
 
 ## Histórico de Atualizações (Changelog)
 
-- **xx/10/2026:** Finalização do pontos.json com 12 ecopontos de Salto (Isabella e Rafael).
+- **11/10/2026:** Melhoria na lógica do botão do Google Maps e segurança dos links externos (Isael).
+- **11/10/2026:** Estruturação inicial do pontos.json com ecopontos de Salto e materiais pesquisados (Isabella e Rafael).
 - **11/10/2026:** Refatoração de CSS para rem, acréscimo de Skip Link e acessibilidade (Naomi).
 - **08/10/2026:** Estruturação da base HTML/CSS do projeto (Naomi).
