@@ -23,20 +23,32 @@ function exibirPontos(pontos) {
   }
 
   pontos.forEach(ponto => {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.innerHTML = `
-      <h3>${ponto.nome}</h3>
-      <p><strong>Bairro:</strong> ${ponto.bairro}</p>
-      <p><strong>Endereço:</strong> ${ponto.endereco}</p>
-      <p><strong>Aceita:</strong> ${ponto.materiais}</p>
-      <p><strong>Horário:</strong> ${ponto.horario}</p>
-      <span class="tag">${ponto.categoria.toUpperCase()}</span>
-      <br>
-      <a href="${ponto.link_maps}" target="_blank" class="btn-maps">Ver no Google Maps 📍</a>
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  let botaoMaps = '';
+
+  if (ponto.link_maps) {
+    botaoMaps = `
+      <a href="${ponto.link_maps}" target="_blank" rel="noopener noreferrer" class="btn-maps">
+        Ver no Google Maps 📍
+      </a>
     `;
-    container.appendChild(card);
-  });
+  }
+
+  card.innerHTML = `
+    <h3>${ponto.nome}</h3>
+    <p><strong>Bairro:</strong> ${ponto.bairro}</p>
+    <p><strong>Endereço:</strong> ${ponto.endereco}</p>
+    <p><strong>Aceita:</strong> ${ponto.materiais}</p>
+    <p><strong>Horário:</strong> ${ponto.horario}</p>
+    <span class="tag">${ponto.categoria.toUpperCase()}</span>
+    <br>
+    ${botaoMaps}
+  `;
+
+  container.appendChild(card);
+});
 }
 
 // Função auxiliar para remover acentos e deixar em minúsculas
