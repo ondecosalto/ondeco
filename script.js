@@ -37,7 +37,7 @@ function exibirPontos(pontos) {
   }
 
   card.innerHTML = `
-    <h3>${ponto.nome}</h3>
+    <h2>${ponto.nome}</h2>
     <p><strong>Bairro:</strong> ${ponto.bairro}</p>
     <p><strong>Endereço:</strong> ${ponto.endereco}</p>
     <p><strong>Aceita:</strong> ${ponto.materiais}</p>
