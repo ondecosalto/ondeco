@@ -67,14 +67,18 @@ function aplicarFiltros() {
   const categoriaSelecionada = document.getElementById('selectCategoria').value;
 
   const pontosFiltrados = todosOsPontos.filter(ponto => {
+    // Transforma a lista de materiais pesquisados em uma frase só para buscar nela
+    const materiaisPesquisadosTexto = Array.isArray(ponto.materiais_pesquisados) 
+      ? ponto.materiais_pesquisados.join(' ') 
+      : '';
     // Une todas as propriedades do ponto e remove os acentos
     const textoPonto = normalizarTexto(`${ponto.nome} ${ponto.bairro} ${ponto.materiais} ${ponto.categoria}`);
 
     // 1. Verifica se o texto digitado bate com os dados do ponto
     const bateTexto = termoBusca === '' || textoPonto.includes(termoBusca);
 
-    // 2. Verifica se a categoria do select bate (ou se está em 'todos')
-    const bateCategoria = (categoriaSelecionada === 'todos') || (ponto.categoria === categoriaSelecionada);
+    // 2. Verifica se a categoria do select bate (usando a array 'categorias' ou a 'categoria' principal)
+    const bateCategoria = categoriaSelecionada === 'todos' || (Array.isArray(ponto.categorias) && ponto.categorias.includes(categoriaSelecionada)) || ponto.categoria === categoriaSelecionada;
 
     return bateTexto && bateCategoria;
   });
