@@ -11,12 +11,12 @@
 ## Status Atual do Projeto
 
 > **Sprint Atual:** Finalização de Interface e Ingestão de Dados  
-> **Última Atualização:** 11/10/2026
+> **Última Atualização:** 12/10/2026
 
 - [x] **Arquitetura Base:** Estruturação HTML5 semântica e CSS3 responsivo.
 - [x] **Acessibilidade Digital:** Adequação WCAG 2.1 AA / e-MAG (unidades `rem`, *Skip Link*, `.sr-only` e foco visível).
 - [x] **Mobile First & Layout:** Implementação de regras de visualização fluida em dispositivos móveis.
-- [ ] **Integração do JSON:** Estruturação e povoamento final do arquivo `pontos.json` (Em andamento pela equipe de Pesquisa).
+- [x] **Integração do JSON:** Estruturação e povoamento final do arquivo `pontos.json`.
 - [ ] **Lógica de Filtros (JS):** Algoritmo de busca por bairro/categoria e anúncios `aria-live` (Em andamento pelo Front-End/JS).
 - [ ] **Deploy GitHub Pages:** Publicação da versão final para a comunidade.
 
@@ -94,7 +94,9 @@ O projeto está enquadrado nas diretrizes de extensão universitária do Minist�
 
 ## Histórico de Atualizações (Changelog)
 
+- **12/10/2026:** Ajuste no pathing dos assets e correção dos seletores de acessibilidade (Naomi).
 - **11/10/2026:** Melhoria na lógica do botão do Google Maps e segurança dos links externos (Isael).
-- **11/10/2026:** Estruturação inicial do pontos.json com ecopontos de Salto e materiais pesquisados (Isabella e Rafael).
+- **11/10/2026:** Estruturação inicial do pontos.json com 22 ecopontos de Salto e materiais pesquisados (Isabella e Rafael).
+- **11/10/2026:** Aplicação da identidade visual e logo oficial (Naomi).
 - **11/10/2026:** Refatoração de CSS para rem, acréscimo de Skip Link e acessibilidade (Naomi).
 - **08/10/2026:** Estruturação da base HTML/CSS do projeto (Naomi).
