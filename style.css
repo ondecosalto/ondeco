@@ -5,8 +5,8 @@
   --branco: #FFFFFF;
   --texto-escuro: #1C3328;
   --texto-mutado: #556B60;
-  --fonte-principal: 'Open Sans', sans-serif;
-  --fonte-logo: 'Outfit', sans-serif;
+  --fonte-principal: 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --fonte-logo: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --radius-card: 0.75rem;
   --radius-btn: 0.5rem;
   --borda-suave: 1px solid #D8E6DA;
@@ -16,6 +16,7 @@
 * {
   box-sizing: border-box;
   font-family: var(--fonte-principal);
+  font-display: swap;
   margin: 0;
   padding: 0;
 }
@@ -55,6 +56,7 @@ header {
 .logo-ondeco {
   height: 8.5rem;
   width: auto;
+  aspect-ratio: 1 / 1.35;
   display: block;
 }
 
@@ -62,6 +64,7 @@ header {
   font-size: 3.8rem;
   font-weight: 700;
   color: var(--verde-escuro);
+  font-display: swap;
   letter-spacing: -0.075rem;
   line-height: 1;
   margin: 0;
