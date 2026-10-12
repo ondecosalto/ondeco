@@ -4,16 +4,23 @@ Este documento estabelece as diretrizes e padrões de desenvolvimento para a equ
 
 ---
 
-## 1. Estrutura de branches
+## 1. Estrutura e Nomenclatura de Branches
 
-Para evitar conflitos de código, **nunca faça commits diretos na branch `main`**. Cada integrante/sub-equipe deve trabalhar em sua respectiva *feature branch*:
+Para manter o histórico organizado e evitar conflitos, **nunca faça commits diretos na branch `main`**. 
 
-| Integrante / Área | Branch Dedicada | Atribuição Principal |
+Cada nova tarefa ou correção deve ser desenvolvida em uma **branch dedicada e temporária**, criada a partir da `main` atualizada. Após o *Pull Request* ser aprovado e integrado à `main`, essa branch cumpre seu papel.
+
+Usamos a seguinte convenção para dar nome às branches:
+
+| Prefixo / Padrão | Responsável / Área Principal | Exemplo de Nome da Branch |
 | :--- | :--- | :--- |
-| **Naomi** | `feature/layout-ui` | Design, CSS, HTML e Responsividade |
-| **Isael** | `feature/logica-js` | Scripts JS, Algoritmo de Busca e Filtros |
-| **Rafael** | `feature/dados-json` | Curadoria e Atualização do `pontos.json` |
-| **Henrique** | `feature/docs-readme` | Documentação Técnica e Atualização do README |
+| `feature/` | **Naomi** (Design, UI, CSS, Responsividade) | `feature/identidade-visual`, `feature/acessibilidade-menu` |
+| `feature/` | **Isael** (Lógica JS, Filtros, Integração) | `feature/busca-acentos`, `feature/valida-link-maps` |
+| `data/` ou `feature/` | **Rafael** (Dados, Curadoria do JSON) | `data/pontos-coleta-salto`, `data/atualiza-horarios` |
+| `docs/` ou `feature/` | **Henrique** (Documentação, README, Guias) | `docs/methodology`, `docs/atualiza-status-readme` |
+| `fix/` | **Todos** (Correções rápidas de bugs) | `fix/caminho-logo`, `fix/erro-select-html` |
+
+> **Regra Básica:** Sempre crie sua branch com um nome descritivo do que está sendo feito (ex: `feature/ajuste-cores` ou `fix/link-quebrado`). Nunca reutilize uma branch que já teve seu PR aprovado e fechado!
 
 ---
 
