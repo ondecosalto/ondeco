@@ -9,60 +9,99 @@
   <title>OndEco Salto - O lugar certo para cada resíduo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap"
     rel="stylesheet">
-  <link rel="preload" href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVc...woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVc...woff2" as="font" type="font/woff2"
+    crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="icon" href="assets/img/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <script src="script.js" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
-  <header>
-    <div class="logo-container">
-      <div class="logo-main">
-        <img src="assets/img/logo-icone.webp" alt="Logo ondEco" class="logo-ondeco" width="40" height="40">
-        <h1 class="logo-texto">ondEco</h1>
-      </div>
-      <p class="tagline">O lugar certo para cada resíduo</p>
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/img/logo-icone.webp" alt="Logo ondEco" class="logo-ondeco" width="40" height="40">
+      <h1 class="logo-texto">ondEco</h1>
     </div>
+    <nav class="nav-menu">
+      <a href="#inicio">Início</a>
+      <a href="#pontos-de-coleta">Pontos de Coleta</a>
+      <a href="javascript:void(0)" id="btn-open-sobre">Sobre</a>
+    </nav>
   </header>
 
-  <main id="main-content" class="container">
-    <section class="filtros">
-      <label for="inputBusca" class="sr-only">Buscar ecoponto por bairro ou material</label>
-      <input type="text" id="inputBusca" placeholder="Busque por bairro ou material...">
-      <label for="selectCategoria" class="sr-only">Filtrar por categoria de resíduo</label>
-      <select id="selectCategoria">
-        <option value="todos">Todas as Categorias</option>
-        <option value="eletronicos">Eletrônicos e Baterias</option>
-        <option value="medicamentos">Medicamentos Vencidos</option>
-        <option value="oleo">Óleo de Cozinha</option>
-        <option value="reciclaveis">Recicláveis (Plástico/Papel/Lata)</option>
-        <option value="entulho">Móveis, Entulho e Podas</option>
-      </select>
+  <main class="main-content" id="inicio">
+
+    <section class="hero-section">
+      <h1>Encontre o destino certo para seus resíduos</h1>
+      <p>Consulte locais adequados para descartar diferentes materiais em Salto.</p>
+
+      <form class="search-box" id="form-busca" onsubmit="return false;">
+        <input type="text" id="input-busca" placeholder="Qual resíduo você quer descartar? (ex: lâmpada, bairro...)">
+        <button type="submit" id="btn-buscar">Buscar</button>
+      </form>
     </section>
 
-    <h2 class="sr-only">Lista de Ecopontos e Locais de Descarte</h2>
-
-    <section id="listaPontos" class="grid-pontos">
-      <!-- Os cards são inseridos dinamicamente pelo JavaScript -->
+    <section class="categories-section">
+      <h2>O que você precisa descartar?</h2>
+      <div class="category-grid">
+        <button class="category-btn" data-category="reciclaveis">Recicláveis</button>
+        <button class="category-btn" data-category="eletronicos">Eletrônicos</button>
+        <button class="category-btn" data-category="pilhas">Pilhas e baterias</button>
+        <button class="category-btn" data-category="oleo">Óleo</button>
+        <button class="category-btn" data-category="medicamentos">Medicamentos</button>
+        <button class="category-btn" data-category="outros">Outros</button>
+      </div>
     </section>
+
+    <section class="collection-points-section" id="pontos-de-coleta">
+      <h2>Pontos de Coleta</h2>
+
+      <div class="points-container">
+        <!-- Coluna/área do mapa (leaflet.js) -->
+        <div class="map-container">
+          <div id="map"></div>
+        </div>
+
+        <!-- Coluna/área dos cards dos pontos -->
+        <div class="cards-list" id="cards-container">
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <div class="footer-container">
-      <p class="footer-texto">
-        <strong>ondEco Salto</strong> &copy; 2026 — Projeto de Extensão IFSP Câmpus Salto
-      </p>
-      <p class="footer-subtexto">
-        Promovendo o descarte consciente e a sustentabilidade na comunidade saltense.
-      </p>
-    </div>
+  <footer class="footer">
+    <p><strong>ondEco</strong> — O lugar certo para cada resíduo.</p>
   </footer>
+
+  <div class="modal-overlay" id="modal-sobre" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="btn-close-sobre">&times;</button>
+      <h2>Sobre o ondEco Salto</h2>
+      <p>O <strong>ondEco Salto</strong> é uma plataforma comunitária desenvolvida com o objetivo de facilitar o descarte correto de resíduos, conectando os moradores da cidade aos Ecopontos e locais de coleta credenciados.
+      </p>
+      <p>Projeto de Extensão desenvolvido por estudantes de Análise e Desenvolvimento de Sistemas do IFSP em parceria com a comunidade de Salto/SP.</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-detalhes" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="btn-close-detalhes">&times;</button>
+      <div id="modal-detalhes-body">
+      </div>
+    </div>
+  </div>
+
+  <button id="btn-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+  &#8593;
+  </button>
 
 </body>
 
