@@ -4,282 +4,987 @@ let mapa = null;
 let marcadoresGroup = null;
 let categoriaAtiva = 'todos';
 
+
+// ==========================================
+// FUNÇÕES AUXILIARES DE SEGURANÇA E FALLBACK
+// ==========================================
+
+// Retorna um texto seguro.
+// Caso o valor não exista, utiliza o fallback informado.
+function obterTextoSeguro(valor, fallback = 'Não informado') {
+  if (valor === null || valor === undefined) {
+    return fallback;
+  }
+
+  const texto = String(valor).trim();
+
+  return texto !== '' ? texto : fallback;
+}
+
+
+// Retorna as categorias somente se forem um array.
+// Evita erros caso o JSON venha com o campo ausente ou inválido.
+function obterCategoriasSeguras(ponto) {
+  return Array.isArray(ponto.categorias)
+    ? ponto.categorias
+    : [];
+}
+
+
+// ==========================================
 // INICIALIZAÇÃO DO MAPA
+// ==========================================
+
 function inicializarMapa() {
+  // Evita inicializar o mapa novamente caso ele já exista
+  if (mapa) return;
+
   // Coordenadas centrais de Salto/SP
   mapa = L.map('map').setView([-23.2014, -47.2882], 13);
 
-  // Layout do Mapa (OpenStreetMap)
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-  }).addTo(mapa);
+  // Layout do mapa usando OpenStreetMap
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }
+  ).addTo(mapa);
 
-  // Grupo para gerenciar e limpar os pinos/marcadores
+  // Grupo utilizado para gerenciar os marcadores
   marcadoresGroup = L.layerGroup().addTo(mapa);
 }
 
-// CARREGAMENTO DOS DADOS (JSON)
+
+// ==========================================
+// CARREGAMENTO DOS DADOS DO JSON
+// ==========================================
+
 async function carregarPontos() {
+  const container = document.getElementById('cards-container');
+
   try {
-    // Caminho atualizado para a pasta assets/data/
     const resposta = await fetch('assets/data/pontos.json');
-    todosOsPontos = await resposta.json();
+
+    // Verifica se a requisição HTTP realmente funcionou
+    if (!resposta.ok) {
+      throw new Error(
+        `Erro HTTP ao carregar pontos.json: ${resposta.status}`
+      );
+    }
+
+    const dados = await resposta.json();
+
+    // Fallback caso o JSON não contenha um array
+    if (!Array.isArray(dados)) {
+      throw new Error(
+        'O arquivo pontos.json não contém uma lista válida de pontos.'
+      );
+    }
+
+    todosOsPontos = dados;
 
     inicializarMapa();
     exibirPontosEMapa(todosOsPontos);
+
   } catch (erro) {
-    console.error('Erro ao carregar os dados do arquivo pontos.json:', erro);
-    const container = document.getElementById('cards-container');
+    // Erro técnico fica disponível no console para desenvolvimento
+    console.error(
+      'Erro ao carregar os dados do arquivo pontos.json:',
+      erro
+    );
+
+    // Mensagem amigável para o usuário
     if (container) {
-      container.innerHTML = '<p>Erro ao carregar os pontos de descarte.</p>';
+      container.replaceChildren();
+
+      const mensagemErro = document.createElement('p');
+
+      mensagemErro.textContent =
+        'Não foi possível carregar os pontos de descarte. Tente novamente mais tarde.';
+
+      container.appendChild(mensagemErro);
     }
   }
 }
 
-// RENDERIZAÇÃO DOS CARDS E PINOS NO MAPA COM REENQUADRAMENTO AUTOMÁTICO
+
+// ==========================================
+// CRIAÇÃO SEGURA DOS CARDS
+// ==========================================
+
+function criarCardPonto(ponto) {
+  const card = document.createElement('article');
+  card.classList.add('point-card');
+
+
+  // NOME
+  const titulo = document.createElement('h3');
+
+  titulo.textContent =
+    obterTextoSeguro(ponto.nome, 'Ponto de descarte');
+
+
+  // ENDEREÇO
+  const endereco = document.createElement('p');
+  endereco.classList.add('address');
+
+  const textoEndereco =
+    obterTextoSeguro(ponto.endereco);
+
+  const textoBairro =
+    obterTextoSeguro(ponto.bairro);
+
+  endereco.textContent =
+    `${textoEndereco} - ${textoBairro}`;
+
+
+  // MATERIAIS
+  const materiais = document.createElement('p');
+  materiais.classList.add('materials');
+
+  const tituloMateriais =
+    document.createElement('strong');
+
+  tituloMateriais.textContent = 'Aceita: ';
+
+  const textoMateriais =
+    document.createTextNode(
+      obterTextoSeguro(
+        ponto.materiais,
+        'Materiais não informados'
+      )
+    );
+
+  materiais.appendChild(tituloMateriais);
+  materiais.appendChild(textoMateriais);
+
+
+  // BOTÃO
+  const botaoDetalhes =
+    document.createElement('button');
+
+  botaoDetalhes.classList.add('btn-detalhes');
+  botaoDetalhes.type = 'button';
+
+  botaoDetalhes.textContent = 'Ver detalhes';
+
+  botaoDetalhes.dataset.id =
+    obterTextoSeguro(
+      ponto.id || ponto.nome,
+      'ponto'
+    );
+
+
+  botaoDetalhes.addEventListener('click', () => {
+    abrirModalDetalhes(ponto);
+  });
+
+
+  // ADICIONA OS ELEMENTOS AO CARD
+  card.appendChild(titulo);
+  card.appendChild(endereco);
+  card.appendChild(materiais);
+  card.appendChild(botaoDetalhes);
+
+
+  return card;
+}
+
+
+// ==========================================
+// RENDERIZAÇÃO DOS CARDS E MARCADORES
+// ==========================================
+
 function exibirPontosEMapa(pontos) {
-  const container = document.getElementById('cards-container');
+  const container =
+    document.getElementById('cards-container');
+
   if (!container) return;
-  
-  container.innerHTML = '';
-  
+
+
+  // Remove os cards anteriores de forma segura
+  container.replaceChildren();
+
+
+  // Limpa os marcadores anteriores
   if (marcadoresGroup) {
     marcadoresGroup.clearLayers();
   }
 
-  if (pontos.length === 0) {
-    container.innerHTML = '<p style="text-align: center; padding: 1.5rem; color: var(--texto-mutado);">Nenhum ponto de descarte encontrado.</p>';
-    if (mapa) {
-      mapa.setView([-23.2014, -47.2882], 13);
-    }
+
+  // Fallback caso "pontos" não seja um array
+  if (!Array.isArray(pontos)) {
+    const mensagem = document.createElement('p');
+
+    mensagem.textContent =
+      'Não foi possível exibir os pontos de descarte.';
+
+    container.appendChild(mensagem);
+
     return;
   }
 
+
+  // Nenhum resultado encontrado
+  if (pontos.length === 0) {
+    const mensagem = document.createElement('p');
+
+    mensagem.textContent =
+      'Nenhum ponto de descarte encontrado.';
+
+    mensagem.style.textAlign = 'center';
+    mensagem.style.padding = '1.5rem';
+    mensagem.style.color = 'var(--texto-mutado)';
+
+    container.appendChild(mensagem);
+
+
+    if (mapa) {
+      mapa.setView(
+        [-23.2014, -47.2882],
+        13
+      );
+    }
+
+    return;
+  }
+
+
+  // Coordenadas utilizadas para calcular o enquadramento
   const bounds = [];
 
+
   pontos.forEach(ponto => {
-    // Criação do Card na Lista
-    const card = document.createElement('article');
-    card.classList.add('point-card');
+    // Ignora valores completamente inválidos dentro do array
+    if (!ponto || typeof ponto !== 'object') {
+      return;
+    }
 
-    card.innerHTML = `
-      <h3>${ponto.nome}</h3>
-      <p class="address">${ponto.endereco} - ${ponto.bairro}</p>
-      <p class="materials"><strong>Aceita:</strong> ${ponto.materiais}</p>
-      <button class="btn-detalhes" data-id="${ponto.id || ponto.nome}">Ver detalhes</button>
-    `;
 
-    card.querySelector('.btn-detalhes').addEventListener('click', () => {
-      abrirModalDetalhes(ponto);
-    });
+    // ==============================
+    // CARD
+    // ==============================
+
+    const card = criarCardPonto(ponto);
 
     container.appendChild(card);
 
-    // Criação do Pino no Mapa (Converte texto em número se necessário)
-    const latitude = parseFloat(ponto.lat);
-    const longitude = parseFloat(ponto.lng);
 
-    if (!isNaN(latitude) && !isNaN(longitude) && marcadoresGroup) {
-      const latLng = [latitude, longitude];
+    // ==============================
+    // COORDENADAS
+    // ==============================
+
+    const latitude =
+      parseFloat(ponto.lat);
+
+    const longitude =
+      parseFloat(ponto.lng);
+
+
+    // Só cria o marcador se as coordenadas forem válidas
+    if (
+      !isNaN(latitude) &&
+      !isNaN(longitude) &&
+      marcadoresGroup
+    ) {
+      const latLng =
+        [latitude, longitude];
+
       bounds.push(latLng);
 
-      const marker = L.marker(latLng);
-      
-      marker.bindPopup(`
-        <div style="text-align: left;">
-          <strong style="color: #245C43; font-size: 0.95rem;">${ponto.nome}</strong><br>
-          <span style="font-size: 0.82rem; color: #555;">${ponto.bairro}</span><br>
-        </div>
-      `);
 
-      // Ao clicar no pino, foca nele e abre o modal de detalhes
+      // ==============================
+      // MARCADOR
+      // ==============================
+
+      const marker =
+        L.marker(latLng);
+
+
+      // Popup criado usando elementos DOM
+      // em vez de inserir dados do JSON via innerHTML
+      const popup =
+        document.createElement('div');
+
+      popup.style.textAlign = 'left';
+
+
+      const nomePopup =
+        document.createElement('strong');
+
+      nomePopup.style.color = '#245C43';
+      nomePopup.style.fontSize = '0.95rem';
+
+      nomePopup.textContent =
+        obterTextoSeguro(
+          ponto.nome,
+          'Ponto de descarte'
+        );
+
+
+      const bairroPopup =
+        document.createElement('span');
+
+      bairroPopup.style.fontSize = '0.82rem';
+      bairroPopup.style.color = '#555';
+
+      bairroPopup.textContent =
+        obterTextoSeguro(
+          ponto.bairro
+        );
+
+
+      popup.appendChild(nomePopup);
+      popup.appendChild(
+        document.createElement('br')
+      );
+
+      popup.appendChild(bairroPopup);
+
+
+      marker.bindPopup(popup);
+
+
+      // Ao clicar no marcador,
+      // abre o modal com os detalhes
       marker.on('click', () => {
         abrirModalDetalhes(ponto);
       });
+
 
       marcadoresGroup.addLayer(marker);
     }
   });
 
-  // Ajuste Automático do Zoom e Visão do Mapa
+
+  // ==========================================
+  // AJUSTE AUTOMÁTICO DO MAPA
+  // ==========================================
+
   if (mapa && bounds.length > 0) {
-    // Garante que o Leaflet recalcule o tamanho do mapa na tela
     setTimeout(() => {
+      // Corrige possíveis problemas de tamanho
+      // quando o mapa é renderizado/redimensionado
       mapa.invalidateSize();
+
+
       if (bounds.length === 1) {
-        mapa.setView(bounds[0], 15);
+        mapa.setView(
+          bounds[0],
+          15
+        );
+
       } else {
-        mapa.fitBounds(bounds, { padding: [40, 40] });
+        mapa.fitBounds(
+          bounds,
+          {
+            padding: [40, 40]
+          }
+        );
       }
+
     }, 100);
   }
 }
 
-// FUNÇÃO AUXILIAR DE NORMALIZAÇÃO DE TEXTO
+
+// ==========================================
+// NORMALIZAÇÃO DE TEXTO
+// ==========================================
+
 function normalizarTexto(texto) {
-  if (!texto) return '';
-  return texto
-    .toLowerCase()
+  if (
+    texto === null ||
+    texto === undefined
+  ) {
+    return '';
+  }
+
+
+  return String(texto)
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
 }
 
-// FILTRAGEM (Busca por Texto + Botões de Categoria)
-function aplicarFiltros() {
-  const inputBusca = document.getElementById('input-busca');
-  const termoBusca = normalizarTexto(inputBusca ? inputBusca.value.trim() : '');
 
-  const pontosFiltrados = todosOsPontos.filter(ponto => {
-    // Une todo o texto do ponto em uma única string normalizada para busca
-    const textoPonto = normalizarTexto(
-      `${ponto.nome} ${ponto.bairro} ${ponto.endereco} ${ponto.materiais} ${ponto.categoria} ${(ponto.categorias || []).join(' ')}`
+// ==========================================
+// FILTRAGEM
+// ==========================================
+
+function aplicarFiltros() {
+  const inputBusca =
+    document.getElementById('input-busca');
+
+
+  const termoBusca =
+    normalizarTexto(
+      inputBusca
+        ? inputBusca.value.trim()
+        : ''
     );
 
-    const bateTexto = termoBusca === '' || textoPonto.includes(termoBusca);
 
-    // Verificação de Categoria
-    let bateCategoria = false;
+  const pontosFiltrados =
+    todosOsPontos.filter(ponto => {
 
-    if (categoriaAtiva === 'todos') {
-      bateCategoria = true;
-    } else if (categoriaAtiva === 'pilhas') {
-      // Se clicar em "Pilhas e baterias", busca por pilhas ou baterias nos materiais/categorias
-      bateCategoria = textoPonto.includes('pilha') || textoPonto.includes('bateria');
-    } else if (categoriaAtiva === 'outros') {
-      // "Outros" inclui lâmpadas, entulho, móveis, podas, etc.
-      bateCategoria = textoPonto.includes('outros') || 
-                      textoPonto.includes('entulho') || 
-                      textoPonto.includes('lampada') || 
-                      textoPonto.includes('moveis') || 
-                      textoPonto.includes('poda');
-    } else {
-      // Demais categorias (reciclaveis, eletronicos, oleo, medicamentos)
-      const catBusca = normalizarTexto(categoriaAtiva);
-      bateCategoria = textoPonto.includes(catBusca) || 
-                      (Array.isArray(ponto.categorias) && ponto.categorias.some(c => normalizarTexto(c).includes(catBusca)));
-    }
+      if (
+        !ponto ||
+        typeof ponto !== 'object'
+      ) {
+        return false;
+      }
 
-    return bateTexto && bateCategoria;
-  });
 
-  exibirPontosEMapa(pontosFiltrados);
+      const categorias =
+        obterCategoriasSeguras(ponto);
+
+
+      // Une os campos pesquisáveis
+      const textoPonto =
+        normalizarTexto(
+          `
+            ${obterTextoSeguro(ponto.nome, '')}
+            ${obterTextoSeguro(ponto.bairro, '')}
+            ${obterTextoSeguro(ponto.endereco, '')}
+            ${obterTextoSeguro(ponto.materiais, '')}
+            ${obterTextoSeguro(ponto.categoria, '')}
+            ${categorias.join(' ')}
+          `
+        );
+
+
+      // ==============================
+      // BUSCA POR TEXTO
+      // ==============================
+
+      const bateTexto =
+        termoBusca === '' ||
+        textoPonto.includes(termoBusca);
+
+
+      // ==============================
+      // BUSCA POR CATEGORIA
+      // ==============================
+
+      let bateCategoria = false;
+
+
+      if (categoriaAtiva === 'todos') {
+        bateCategoria = true;
+
+
+      } else if (categoriaAtiva === 'pilhas') {
+        bateCategoria =
+          textoPonto.includes('pilha') ||
+          textoPonto.includes('bateria');
+
+
+      } else if (categoriaAtiva === 'outros') {
+        bateCategoria =
+          textoPonto.includes('outros') ||
+          textoPonto.includes('entulho') ||
+          textoPonto.includes('lampada') ||
+          textoPonto.includes('moveis') ||
+          textoPonto.includes('poda');
+
+
+      } else {
+        const catBusca =
+          normalizarTexto(categoriaAtiva);
+
+
+        bateCategoria =
+          textoPonto.includes(catBusca) ||
+
+          categorias.some(categoria =>
+            normalizarTexto(categoria)
+              .includes(catBusca)
+          );
+      }
+
+
+      return bateTexto && bateCategoria;
+    });
+
+
+  exibirPontosEMapa(
+    pontosFiltrados
+  );
 }
 
-// EVENTOS DE BUSCA E BOTÕES DE CATEGORIA
 
-// Campo de busca por digitação
-const inputBusca = document.getElementById('input-busca');
+// ==========================================
+// EVENTOS DE BUSCA
+// ==========================================
+
+const inputBusca =
+  document.getElementById('input-busca');
+
+
 if (inputBusca) {
-  inputBusca.addEventListener('input', () => {
-    aplicarFiltros();
-  });
+  inputBusca.addEventListener(
+    'input',
+    aplicarFiltros
+  );
 }
 
-// Form submit (evita recarregar a página ao dar Enter)
-const formBusca = document.getElementById('form-busca');
+
+// Evita recarregar a página ao pressionar Enter
+const formBusca =
+  document.getElementById('form-busca');
+
+
 if (formBusca) {
-  formBusca.addEventListener('submit', (e) => {
-    e.preventDefault();
-    aplicarFiltros();
-  });
+  formBusca.addEventListener(
+    'submit',
+    (evento) => {
+      evento.preventDefault();
+
+      aplicarFiltros();
+    }
+  );
 }
 
-// Botões de Categoria (Grid)
-const botoesCategoria = document.querySelectorAll('.category-btn');
+
+// ==========================================
+// BOTÕES DE CATEGORIA
+// ==========================================
+
+const botoesCategoria =
+  document.querySelectorAll('.category-btn');
+
+
 botoesCategoria.forEach(botao => {
   botao.addEventListener('click', () => {
-    const cat = botao.getAttribute('data-category');
+    const categoria =
+      botao.getAttribute('data-category');
 
-    // Alterna a categoria ativa se clicar no mesmo botão
-    if (categoriaAtiva === cat) {
+
+    // Clicou novamente na categoria ativa:
+    // volta para "todos"
+    if (categoriaAtiva === categoria) {
       categoriaAtiva = 'todos';
+
       botao.classList.remove('active');
+
     } else {
-      botoesCategoria.forEach(b => b.classList.remove('active'));
-      categoriaAtiva = cat;
+      botoesCategoria.forEach(outroBotao => {
+        outroBotao.classList.remove('active');
+      });
+
+
+      categoriaAtiva = categoria;
+
       botao.classList.add('active');
     }
 
+
     aplicarFiltros();
   });
 });
 
-//  GERENCIAMENTO DOS MODAIS (SOBRE E DETALHES)
-const modalSobre = document.getElementById('modal-sobre');
-const btnOpenSobre = document.getElementById('btn-open-sobre');
-const btnCloseSobre = document.getElementById('btn-close-sobre');
 
-const modalDetalhes = document.getElementById('modal-detalhes');
-const btnCloseDetalhes = document.getElementById('btn-close-detalhes');
+// ==========================================
+// MODAIS
+// ==========================================
 
-// Modal Sobre
-if (btnOpenSobre) {
-  btnOpenSobre.addEventListener('click', () => modalSobre.classList.add('active'));
+const modalSobre =
+  document.getElementById('modal-sobre');
+
+const btnOpenSobre =
+  document.getElementById('btn-open-sobre');
+
+const btnCloseSobre =
+  document.getElementById('btn-close-sobre');
+
+
+const modalDetalhes =
+  document.getElementById('modal-detalhes');
+
+const btnCloseDetalhes =
+  document.getElementById('btn-close-detalhes');
+
+
+// ==========================================
+// MODAL SOBRE
+// ==========================================
+
+if (
+  btnOpenSobre &&
+  modalSobre
+) {
+  btnOpenSobre.addEventListener(
+    'click',
+    () => {
+      modalSobre.classList.add('active');
+
+      // Recalcula o tamanho do mapa após alterações
+      // de layout causadas pela interface
+      if (mapa) {
+        setTimeout(() => {
+          mapa.invalidateSize();
+        }, 100);
+      }
+    }
+  );
 }
-if (btnCloseSobre) {
-  btnCloseSobre.addEventListener('click', () => modalSobre.classList.remove('active'));
+
+
+if (
+  btnCloseSobre &&
+  modalSobre
+) {
+  btnCloseSobre.addEventListener(
+    'click',
+    () => {
+      modalSobre.classList.remove('active');
+    }
+  );
 }
 
-// Modal Detalhes
+
+// ==========================================
+// MODAL DE DETALHES
+// ==========================================
+
 function abrirModalDetalhes(ponto) {
-  const modalBody = document.getElementById('modal-detalhes-body');
-  
-  let botaoMaps = '';
-  if (ponto.link_maps) {
-    botaoMaps = `
-      <a href="${ponto.link_maps}" target="_blank" rel="noopener noreferrer" class="btn-maps" style="display:inline-block; margin-top: 1rem;">
-        Ver no Google Maps 📍
-      </a>
-    `;
+  const modalBody =
+    document.getElementById(
+      'modal-detalhes-body'
+    );
+
+
+  if (
+    !modalBody ||
+    !modalDetalhes ||
+    !ponto
+  ) {
+    return;
   }
 
-  modalBody.innerHTML = `
-    <h2 style="color: var(--verde-escuro); margin-bottom: 0.5rem;">${ponto.nome}</h2>
-    <p><strong>Endereço:</strong> ${ponto.endereco} - ${ponto.bairro}</p>
-    <p style="margin-top:0.5rem;"><strong>Materiais aceitos:</strong> ${ponto.materiais}</p>
-    <p style="margin-top:0.5rem;"><strong>Horário de Funcionamento:</strong> ${ponto.horario || 'Não informado'}</p>
-    ${botaoMaps}
-  `;
 
-  modalDetalhes.classList.add('active');
-}
+  // Remove o conteúdo anterior
+  modalBody.replaceChildren();
 
-if (btnCloseDetalhes) {
-  btnCloseDetalhes.addEventListener('click', () => modalDetalhes.classList.remove('active'));
-}
 
-// Fechar modais ao clicar no fundo escurecido ou apertar ESC
-window.addEventListener('click', (e) => {
-  if (e.target === modalSobre) modalSobre.classList.remove('active');
-  if (e.target === modalDetalhes) modalDetalhes.classList.remove('active');
-});
+  // ==============================
+  // NOME
+  // ==============================
 
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    if (modalSobre) modalSobre.classList.remove('active');
-    if (modalDetalhes) modalDetalhes.classList.remove('active');
+  const titulo =
+    document.createElement('h2');
+
+  titulo.style.color =
+    'var(--verde-escuro)';
+
+  titulo.style.marginBottom =
+    '0.5rem';
+
+  titulo.textContent =
+    obterTextoSeguro(
+      ponto.nome,
+      'Ponto de descarte'
+    );
+
+
+  // ==============================
+  // ENDEREÇO
+  // ==============================
+
+  const endereco =
+    document.createElement('p');
+
+  const enderecoStrong =
+    document.createElement('strong');
+
+  enderecoStrong.textContent =
+    'Endereço: ';
+
+
+  const enderecoTexto =
+    document.createTextNode(
+      `${obterTextoSeguro(ponto.endereco)} - ${obterTextoSeguro(ponto.bairro)}`
+    );
+
+
+  endereco.appendChild(
+    enderecoStrong
+  );
+
+  endereco.appendChild(
+    enderecoTexto
+  );
+
+
+  // ==============================
+  // MATERIAIS
+  // ==============================
+
+  const materiais =
+    document.createElement('p');
+
+  materiais.style.marginTop =
+    '0.5rem';
+
+
+  const materiaisStrong =
+    document.createElement('strong');
+
+  materiaisStrong.textContent =
+    'Materiais aceitos: ';
+
+
+  materiais.appendChild(
+    materiaisStrong
+  );
+
+  materiais.appendChild(
+    document.createTextNode(
+      obterTextoSeguro(
+        ponto.materiais,
+        'Não informado'
+      )
+    )
+  );
+
+
+  // ==============================
+  // HORÁRIO
+  // ==============================
+
+  const horario =
+    document.createElement('p');
+
+  horario.style.marginTop =
+    '0.5rem';
+
+
+  const horarioStrong =
+    document.createElement('strong');
+
+  horarioStrong.textContent =
+    'Horário de Funcionamento: ';
+
+
+  horario.appendChild(
+    horarioStrong
+  );
+
+  horario.appendChild(
+    document.createTextNode(
+      obterTextoSeguro(
+        ponto.horario,
+        'Não informado'
+      )
+    )
+  );
+
+
+  // Adiciona os elementos ao modal
+  modalBody.appendChild(titulo);
+  modalBody.appendChild(endereco);
+  modalBody.appendChild(materiais);
+  modalBody.appendChild(horario);
+
+
+  // ==============================
+  // GOOGLE MAPS
+  // ==============================
+
+  if (
+    typeof ponto.link_maps === 'string' &&
+    ponto.link_maps.trim() !== ''
+  ) {
+    try {
+      const urlMaps =
+        new URL(ponto.link_maps);
+
+
+      // Aceita apenas HTTP ou HTTPS
+      if (
+        urlMaps.protocol === 'http:' ||
+        urlMaps.protocol === 'https:'
+      ) {
+        const botaoMaps =
+          document.createElement('a');
+
+        botaoMaps.href =
+          urlMaps.href;
+
+        botaoMaps.target =
+          '_blank';
+
+        botaoMaps.rel =
+          'noopener noreferrer';
+
+        botaoMaps.classList.add(
+          'btn-maps'
+        );
+
+        botaoMaps.style.display =
+          'inline-block';
+
+        botaoMaps.style.marginTop =
+          '1rem';
+
+        botaoMaps.textContent =
+          'Ver no Google Maps 📍';
+
+
+        modalBody.appendChild(
+          botaoMaps
+        );
+      }
+
+    } catch {
+      // Caso link_maps seja inválido,
+      // simplesmente não exibe o botão.
+    }
   }
-});
 
-//  BOTÃO "VOLTAR AO TOPO"
-const btnTop = document.getElementById('btn-top');
+
+  modalDetalhes.classList.add(
+    'active'
+  );
+
+
+  // Garante que o Leaflet recalcule o mapa
+  // depois de alterações na interface
+  if (mapa) {
+    setTimeout(() => {
+      mapa.invalidateSize();
+    }, 100);
+  }
+}
+
+
+// ==========================================
+// FECHAMENTO DOS MODAIS
+// ==========================================
+
+if (
+  btnCloseDetalhes &&
+  modalDetalhes
+) {
+  btnCloseDetalhes.addEventListener(
+    'click',
+    () => {
+      modalDetalhes.classList.remove(
+        'active'
+      );
+    }
+  );
+}
+
+
+// Fecha ao clicar no fundo escurecido
+window.addEventListener(
+  'click',
+  (evento) => {
+
+    if (
+      modalSobre &&
+      evento.target === modalSobre
+    ) {
+      modalSobre.classList.remove(
+        'active'
+      );
+    }
+
+
+    if (
+      modalDetalhes &&
+      evento.target === modalDetalhes
+    ) {
+      modalDetalhes.classList.remove(
+        'active'
+      );
+    }
+  }
+);
+
+
+// Fecha com ESC
+window.addEventListener(
+  'keydown',
+  (evento) => {
+
+    if (evento.key !== 'Escape') {
+      return;
+    }
+
+
+    if (modalSobre) {
+      modalSobre.classList.remove(
+        'active'
+      );
+    }
+
+
+    if (modalDetalhes) {
+      modalDetalhes.classList.remove(
+        'active'
+      );
+    }
+  }
+);
+
+
+// ==========================================
+// REDIMENSIONAMENTO DO MAPA
+// ==========================================
+
+window.addEventListener(
+  'resize',
+  () => {
+
+    if (mapa) {
+      mapa.invalidateSize();
+    }
+  }
+);
+
+
+// ==========================================
+// BOTÃO "VOLTAR AO TOPO"
+// ==========================================
+
+const btnTop =
+  document.getElementById('btn-top');
+
 
 if (btnTop) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      btnTop.classList.add('show');
-    } else {
-      btnTop.classList.remove('show');
-    }
-  });
+  window.addEventListener(
+    'scroll',
+    () => {
 
-  btnTop.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
+      if (window.scrollY > 300) {
+        btnTop.classList.add('show');
+
+      } else {
+        btnTop.classList.remove('show');
+      }
+    }
+  );
+
+
+  btnTop.addEventListener(
+    'click',
+    () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  );
 }
+
+
+// ==========================================
+// INICIALIZAÇÃO DO PROJETO
+// ==========================================
 
 carregarPontos();
