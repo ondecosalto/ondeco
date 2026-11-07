@@ -136,7 +136,9 @@ function criarCardPonto(ponto) {
     obterTextoSeguro(ponto.bairro);
 
   endereco.textContent =
-    `${textoEndereco} - ${textoBairro}`;
+  textoBairro === 'Não informado'
+    ? textoEndereco
+    : `${textoEndereco} - ${textoBairro}`;
 
 
   // MATERIAIS
@@ -987,4 +989,6 @@ if (btnTop) {
 // INICIALIZAÇÃO DO PROJETO
 // ==========================================
 
-carregarPontos();
+document.addEventListener('DOMContentLoaded', () => {
+  carregarPontos();
+});
