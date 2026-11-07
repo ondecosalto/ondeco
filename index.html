@@ -12,95 +12,111 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap"
     rel="stylesheet">
-  <link rel="preload" href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVc...woff2" as="font" type="font/woff2"
-    crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="icon" href="assets/img/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <meta property="og:title" content="ondEco Salto - Pontos de Coleta Seletiva">
+  <meta property="og:description" content="Encontre locais adequados para descartar diferentes materiais em Salto/SP.">
+  <meta property="og:type" content="website">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
 <body>
-  <header class="navbar">
+  <!-- Atalho de acessibilidade para leitores de tela / navegação via teclado -->
+  <a href="#inicio" class="skip-link">Pular para o conteúdo principal</a>
+
+  <header class="navbar" role="banner">
     <div class="logo">
-      <img src="assets/img/logo-icone.webp" alt="Logo ondEco" class="logo-ondeco" width="40" height="40">
+      <img src="assets/img/logo-icone.webp" alt="Ícone da logo ondEco Salto" class="logo-ondeco" width="40" height="40">
       <h1 class="logo-texto">ondEco</h1>
     </div>
-    <nav class="nav-menu">
+    <nav class="nav-menu" aria-label="Navegação Principal">
       <a href="#inicio">Início</a>
       <a href="#pontos-de-coleta">Pontos de Coleta</a>
-      <a href="javascript:void(0)" id="btn-open-sobre">Sobre</a>
+      <a href="javascript:void(0)" id="btn-open-sobre" role="button" aria-haspopup="dialog">Sobre</a>
     </nav>
   </header>
 
   <main class="main-content" id="inicio">
 
-    <section class="hero-section">
-      <h1>Encontre o destino certo para seus resíduos</h1>
+    <section class="hero-section" aria-labelledby="hero-titulo">
+      <h1 id="hero-titulo">Encontre o destino certo para seus resíduos</h1>
       <p>Consulte locais adequados para descartar diferentes materiais em Salto.</p>
 
-      <form class="search-box" id="form-busca" onsubmit="return false;">
-        <input type="text" id="input-busca" placeholder="Qual resíduo você quer descartar? (ex: lâmpada, bairro...)">
-        <button type="submit" id="btn-buscar">Buscar</button>
+      <form class="search-box" id="form-busca" role="search" onsubmit="return false;">
+        <label for="input-busca" class="sr-only">Buscar resíduo ou bairro</label>
+        <div class="input-wrapper">
+          <input type="text" id="input-busca" placeholder="Qual resíduo você quer descartar? (ex: lâmpada, bairro...)"
+            aria-label="Digite o resíduo ou bairro desejado">
+          <span class="spinner-busca" id="spinner-busca" aria-hidden="true"></span>
+        </div>
+        <button type="submit" id="btn-buscar" aria-label="Realizar busca de pontos de coleta">Buscar</button>
       </form>
     </section>
 
-    <section class="categories-section">
-      <h2>O que você precisa descartar?</h2>
-      <div class="category-grid">
-        <button class="category-btn" data-category="reciclaveis">Recicláveis</button>
-        <button class="category-btn" data-category="eletronicos">Eletrônicos</button>
-        <button class="category-btn" data-category="pilhas">Pilhas e baterias</button>
-        <button class="category-btn" data-category="oleo">Óleo</button>
-        <button class="category-btn" data-category="medicamentos">Medicamentos</button>
-        <button class="category-btn" data-category="outros">Outros</button>
+    <section class="categories-section" aria-labelledby="categorias-titulo">
+      <h2 id="categorias-titulo">O que você precisa descartar?</h2>
+      <div class="category-grid" role="group" aria-label="Filtrar por categorias de descarte">
+        <button class="category-btn active" data-category="todos" type="button" aria-pressed="true">Todos</button>
+        <button class="category-btn" data-category="reciclaveis" type="button" aria-pressed="false">Recicláveis</button>
+        <button class="category-btn" data-category="eletronicos" type="button" aria-pressed="false">Eletrônicos</button>
+        <button class="category-btn" data-category="pilhas" type="button" aria-pressed="false">Pilhas e
+          baterias</button>
+        <button class="category-btn" data-category="oleo" type="button" aria-pressed="false">Óleo</button>
+        <button class="category-btn" data-category="medicamentos" type="button"
+          aria-pressed="false">Medicamentos</button>
+        <button class="category-btn" data-category="outros" type="button" aria-pressed="false">Outros</button>
       </div>
     </section>
 
-    <section class="collection-points-section" id="pontos-de-coleta">
-      <h2>Pontos de Coleta</h2>
+    <section class="collection-points-section" id="pontos-de-coleta" aria-labelledby="pontos-titulo">
+      <h2 id="pontos-titulo">Pontos de Coleta</h2>
 
       <div class="points-container">
         <!-- Coluna/área do mapa (leaflet.js) -->
-        <div class="map-container">
+        <div class="map-container" aria-label="Mapa interativo de Salto com pontos de coleta">
           <div id="map"></div>
         </div>
 
         <!-- Coluna/área dos cards dos pontos -->
-        <div class="cards-list" id="cards-container">
+        <div class="cards-list" id="cards-container" aria-live="polite">
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <p><strong>ondEco</strong> — O lugar certo para cada resíduo.</p>
   </footer>
 
-  <div class="modal-overlay" id="modal-sobre" aria-hidden="true">
+  <!-- Modal sobre -->
+  <div class="modal-overlay" id="modal-sobre" aria-hidden="true" role="dialog" aria-labelledby="sobre-titulo">
     <div class="modal-content">
-      <button class="modal-close" id="btn-close-sobre">&times;</button>
-      <h2>Sobre o ondEco Salto</h2>
-      <p>O <strong>ondEco Salto</strong> é uma plataforma comunitária desenvolvida com o objetivo de facilitar o descarte correto de resíduos, conectando os moradores da cidade aos Ecopontos e locais de coleta credenciados.
+      <button class="modal-close" id="btn-close-sobre" aria-label="Fechar janela Sobre">&times;</button>
+      <h2 id="sobre-titulo">Sobre o ondEco Salto</h2>
+      <p>O <strong>ondEco Salto</strong> é uma plataforma comunitária desenvolvida com o objetivo de facilitar o
+        descarte correto de resíduos, conectando os moradores da cidade aos Ecopontos e locais de coleta credenciados.
       </p>
-      <p>Projeto de Extensão desenvolvido por estudantes de Análise e Desenvolvimento de Sistemas do IFSP em parceria com a comunidade de Salto/SP.</p>
+      <p>Projeto de Extensão desenvolvido por estudantes de Análise e Desenvolvimento de Sistemas do IFSP em parceria
+        com a comunidade de Salto/SP.</p>
     </div>
   </div>
 
-  <div class="modal-overlay" id="modal-detalhes" aria-hidden="true">
+  <!-- Modal detalhes -->
+  <div class="modal-overlay" id="modal-detalhes" aria-hidden="true" role="dialog" aria-labelledby="detalhes-titulo">
     <div class="modal-content">
-      <button class="modal-close" id="btn-close-detalhes">&times;</button>
+      <button class="modal-close" id="btn-close-detalhes" aria-label="Fechar detalhes do ecoponto">&times;</button>
       <div id="modal-detalhes-body">
       </div>
     </div>
   </div>
 
-  <button id="btn-top" aria-label="Voltar ao topo" title="Voltar ao topo">
-  &#8593;
+  <button id="btn-top" aria-label="Voltar ao topo da página" title="Voltar ao topo">
+    &#8593;
   </button>
 
 </body>
