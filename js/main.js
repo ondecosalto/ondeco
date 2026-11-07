@@ -1,4 +1,6 @@
+// ==========================================
 // VARIÁVEIS GLOBAIS
+// ==========================================
 let todosOsPontos = [];
 let mapa = null;
 let marcadoresGroup = null;
@@ -28,6 +30,22 @@ function obterCategoriasSeguras(ponto) {
   return Array.isArray(ponto.categorias)
     ? ponto.categorias
     : [];
+}
+
+
+// ==========================================
+// ADAPTAÇÃO RESPONSIVA (PLACEHOLDER MOBILE)
+// ==========================================
+
+function ajustarPlaceholderBusca() {
+  const inputBusca = document.getElementById('input-busca');
+  if (!inputBusca) return;
+
+  if (window.innerWidth < 600) {
+    inputBusca.placeholder = 'Qual resíduo quer descartar?';
+  } else {
+    inputBusca.placeholder = 'Qual resíduo você quer descartar? (ex: lâmpada, bairro...)';
+  }
 }
 
 
@@ -110,6 +128,42 @@ async function carregarPontos() {
 
 
 // ==========================================
+// ANIMAÇÃO DE CARREGAMENTO (SKELETON)
+// ==========================================
+
+function exibirSkeletonCards() {
+  const container = document.getElementById('cards-container');
+  if (!container) return;
+
+  container.replaceChildren();
+
+  for (let i = 0; i < 3; i++) {
+    const skeletonCard = document.createElement('article');
+    skeletonCard.className = 'card-skeleton';
+
+    const linhaTitulo = document.createElement('div');
+    linhaTitulo.className = 'skeleton-line title';
+
+    const linhaEndereco = document.createElement('div');
+    linhaEndereco.className = 'skeleton-line text';
+
+    const linhaMateriais = document.createElement('div');
+    linhaMateriais.className = 'skeleton-line text';
+
+    const linhaBtn = document.createElement('div');
+    linhaBtn.className = 'skeleton-line btn';
+
+    skeletonCard.appendChild(linhaTitulo);
+    skeletonCard.appendChild(linhaEndereco);
+    skeletonCard.appendChild(linhaMateriais);
+    skeletonCard.appendChild(linhaBtn);
+
+    container.appendChild(skeletonCard);
+  }
+}
+
+
+// ==========================================
 // CRIAÇÃO SEGURA DOS CARDS
 // ==========================================
 
@@ -170,6 +224,11 @@ function criarCardPonto(ponto) {
   botaoDetalhes.type = 'button';
 
   botaoDetalhes.textContent = 'Ver detalhes';
+
+  botaoDetalhes.setAttribute(
+    'aria-label',
+    `Ver detalhes de ${obterTextoSeguro(ponto.nome)}`
+  );
 
   botaoDetalhes.dataset.id =
     obterTextoSeguro(
@@ -412,10 +471,16 @@ function normalizarTexto(texto) {
 
 
 // ==========================================
-// FILTRAGEM
+// FILTRAGEM (COM SKELETON)
 // ==========================================
 
 function aplicarFiltros() {
+  if (!Array.isArray(todosOsPontos) || todosOsPontos.length === 0) return;
+
+  // Mostra a animação de carregamento enquanto filtra
+  exibirSkeletonCards();
+
+
   const inputBusca =
     document.getElementById('input-busca');
 
@@ -511,47 +576,80 @@ function aplicarFiltros() {
     });
 
 
-  exibirPontosEMapa(
-    pontosFiltrados
-  );
+  setTimeout(() => {
+    exibirPontosEMapa(
+      pontosFiltrados
+    );
+  }, 250);
 }
 
 
 // ==========================================
-// EVENTOS DE BUSCA
+// EVENTOS DE BUSCA (BOTÃO BUSCAR / LIMPAR)
 // ==========================================
 
 const inputBusca =
   document.getElementById('input-busca');
 
+const btnBuscar =
+  document.getElementById('btn-buscar');
 
-if (inputBusca) {
-  inputBusca.addEventListener(
-    'input',
-    aplicarFiltros
-  );
-}
-
-
-// Evita recarregar a página ao pressionar Enter
 const formBusca =
   document.getElementById('form-busca');
 
 
-if (formBusca) {
-  formBusca.addEventListener(
-    'submit',
-    (evento) => {
-      evento.preventDefault();
+// Alterna o botão entre "Buscar" e "Limpar"
+function atualizarEstadoBotaoBusca() {
+  if (!inputBusca || !btnBuscar) return;
 
+  if (inputBusca.value.trim() !== '') {
+    btnBuscar.textContent = 'Limpar';
+    btnBuscar.classList.add('btn-limpar');
+    btnBuscar.setAttribute('aria-label', 'Limpar texto da busca');
+
+  } else {
+    btnBuscar.textContent = 'Buscar';
+    btnBuscar.classList.remove('btn-limpar');
+    btnBuscar.setAttribute('aria-label', 'Realizar busca de pontos de coleta');
+  }
+}
+
+
+if (inputBusca) {
+  inputBusca.addEventListener(
+    'input',
+    () => {
+      atualizarEstadoBotaoBusca();
       aplicarFiltros();
     }
   );
 }
 
 
+// Evita recarregar a página ao pressionar Enter
+if (formBusca) {
+  formBusca.addEventListener(
+    'submit',
+    (evento) => {
+      evento.preventDefault();
+
+      // Se já há texto, o botão funciona como "Limpar"
+      if (inputBusca && inputBusca.value.trim() !== '') {
+        inputBusca.value = '';
+        atualizarEstadoBotaoBusca();
+        aplicarFiltros();
+        inputBusca.focus();
+
+      } else {
+        aplicarFiltros();
+      }
+    }
+  );
+}
+
+
 // ==========================================
-// BOTÕES DE CATEGORIA
+// BOTÕES DE CATEGORIA (ARIA-PRESSED)
 // ==========================================
 
 const botoesCategoria =
@@ -569,17 +667,30 @@ botoesCategoria.forEach(botao => {
     if (categoriaAtiva === categoria) {
       categoriaAtiva = 'todos';
 
-      botao.classList.remove('active');
+      botoesCategoria.forEach(outroBotao => {
+        outroBotao.classList.remove('active');
+        outroBotao.setAttribute('aria-pressed', 'false');
+      });
+
+      const btnTodos =
+        document.querySelector('.category-btn[data-category="todos"]');
+
+      if (btnTodos) {
+        btnTodos.classList.add('active');
+        btnTodos.setAttribute('aria-pressed', 'true');
+      }
 
     } else {
       botoesCategoria.forEach(outroBotao => {
         outroBotao.classList.remove('active');
+        outroBotao.setAttribute('aria-pressed', 'false');
       });
 
 
       categoriaAtiva = categoria;
 
       botao.classList.add('active');
+      botao.setAttribute('aria-pressed', 'true');
     }
 
 
@@ -589,7 +700,7 @@ botoesCategoria.forEach(botao => {
 
 
 // ==========================================
-// MODAIS
+// MODAIS (ACESSÍVEIS)
 // ==========================================
 
 const modalSobre =
@@ -609,6 +720,27 @@ const btnCloseDetalhes =
   document.getElementById('btn-close-detalhes');
 
 
+// Abre um modal, atualiza o ARIA e foca no botão de fechar
+function abrirModal(modal) {
+  if (!modal) return;
+
+  modal.classList.add('active');
+  modal.removeAttribute('aria-hidden');
+
+  const btnFechar = modal.querySelector('.modal-close');
+  if (btnFechar) btnFechar.focus();
+}
+
+
+// Fecha um modal e atualiza o ARIA
+function fecharModal(modal) {
+  if (!modal) return;
+
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+
 // ==========================================
 // MODAL SOBRE
 // ==========================================
@@ -620,7 +752,7 @@ if (
   btnOpenSobre.addEventListener(
     'click',
     () => {
-      modalSobre.classList.add('active');
+      abrirModal(modalSobre);
 
       // Recalcula o tamanho do mapa após alterações
       // de layout causadas pela interface
@@ -641,7 +773,7 @@ if (
   btnCloseSobre.addEventListener(
     'click',
     () => {
-      modalSobre.classList.remove('active');
+      fecharModal(modalSobre);
     }
   );
 }
@@ -707,7 +839,9 @@ function abrirModalDetalhes(ponto) {
 
   const enderecoTexto =
     document.createTextNode(
-      `${obterTextoSeguro(ponto.endereco)} - ${obterTextoSeguro(ponto.bairro)}`
+      obterTextoSeguro(ponto.bairro) === 'Não informado'
+        ? obterTextoSeguro(ponto.endereco)
+        : `${obterTextoSeguro(ponto.endereco)} - ${obterTextoSeguro(ponto.bairro)}`
     );
 
 
@@ -847,9 +981,7 @@ function abrirModalDetalhes(ponto) {
   }
 
 
-  modalDetalhes.classList.add(
-    'active'
-  );
+  abrirModal(modalDetalhes);
 
 
   // Garante que o Leaflet recalcule o mapa
@@ -873,9 +1005,7 @@ if (
   btnCloseDetalhes.addEventListener(
     'click',
     () => {
-      modalDetalhes.classList.remove(
-        'active'
-      );
+      fecharModal(modalDetalhes);
     }
   );
 }
@@ -890,9 +1020,7 @@ window.addEventListener(
       modalSobre &&
       evento.target === modalSobre
     ) {
-      modalSobre.classList.remove(
-        'active'
-      );
+      fecharModal(modalSobre);
     }
 
 
@@ -900,9 +1028,7 @@ window.addEventListener(
       modalDetalhes &&
       evento.target === modalDetalhes
     ) {
-      modalDetalhes.classList.remove(
-        'active'
-      );
+      fecharModal(modalDetalhes);
     }
   }
 );
@@ -918,18 +1044,8 @@ window.addEventListener(
     }
 
 
-    if (modalSobre) {
-      modalSobre.classList.remove(
-        'active'
-      );
-    }
-
-
-    if (modalDetalhes) {
-      modalDetalhes.classList.remove(
-        'active'
-      );
-    }
+    fecharModal(modalSobre);
+    fecharModal(modalDetalhes);
   }
 );
 
@@ -991,4 +1107,7 @@ if (btnTop) {
 
 document.addEventListener('DOMContentLoaded', () => {
   carregarPontos();
+  ajustarPlaceholderBusca();
 });
+
+window.addEventListener('resize', ajustarPlaceholderBusca);
