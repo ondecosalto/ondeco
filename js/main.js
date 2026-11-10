@@ -126,7 +126,6 @@ async function carregarPontos() {
   }
 }
 
-
 // ==========================================
 // ANIMAÇÃO DE CARREGAMENTO (SKELETON)
 // ==========================================
@@ -474,6 +473,23 @@ function normalizarTexto(texto) {
 // FILTRAGEM (COM SKELETON)
 // ==========================================
 
+function filtrarPontos(termoBusca) {
+  const termo = termoBusca.toLowerCase().trim();
+
+  return pontos.filter(ponto => {
+    const nome = ponto.nome ? ponto.nome.toLowerCase() : '';
+    const bairro = ponto.bairro ? ponto.bairro.toLowerCase() : '';
+    const tipo = ponto.tipo_ponto ? ponto.tipo_ponto.toLowerCase() : '';
+    const materiais = ponto.materiais ? ponto.materiais.toLowerCase() : '';
+
+    // Retorna true se a palavra pesquisada estiver em qualquer um desses campos
+    return nome.includes(termo) || 
+           bairro.includes(termo) || 
+           tipo.includes(termo) || 
+           materiais.includes(termo);
+  });
+}
+
 function aplicarFiltros() {
   if (!Array.isArray(todosOsPontos) || todosOsPontos.length === 0) return;
 
@@ -784,215 +800,140 @@ if (
 // ==========================================
 
 function abrirModalDetalhes(ponto) {
-  const modalBody =
-    document.getElementById(
-      'modal-detalhes-body'
-    );
+  const modalBody = document.getElementById('modal-detalhes-body');
 
-
-  if (
-    !modalBody ||
-    !modalDetalhes ||
-    !ponto
-  ) {
+  if (!modalBody || !modalDetalhes || !ponto) {
     return;
   }
-
 
   // Remove o conteúdo anterior
   modalBody.replaceChildren();
 
-
   // ==============================
   // NOME
   // ==============================
-
-  const titulo =
-    document.createElement('h2');
-
-  titulo.style.color =
-    'var(--verde-escuro)';
-
-  titulo.style.marginBottom =
-    '0.5rem';
-
-  titulo.textContent =
-    obterTextoSeguro(
-      ponto.nome,
-      'Ponto de descarte'
-    );
-
+  const titulo = document.createElement('h2');
+  titulo.style.color = 'var(--verde-escuro)';
+  titulo.style.marginBottom = '0.5rem';
+  titulo.textContent = obterTextoSeguro(ponto.nome, 'Ponto de descarte');
 
   // ==============================
   // ENDEREÇO
   // ==============================
+  const endereco = document.createElement('p');
+  const enderecoStrong = document.createElement('strong');
+  enderecoStrong.textContent = 'Endereço: ';
 
-  const endereco =
-    document.createElement('p');
-
-  const enderecoStrong =
-    document.createElement('strong');
-
-  enderecoStrong.textContent =
-    'Endereço: ';
-
-
-  const enderecoTexto =
-    document.createTextNode(
-      obterTextoSeguro(ponto.bairro) === 'Não informado'
-        ? obterTextoSeguro(ponto.endereco)
-        : `${obterTextoSeguro(ponto.endereco)} - ${obterTextoSeguro(ponto.bairro)}`
-    );
-
-
-  endereco.appendChild(
-    enderecoStrong
+  const enderecoTexto = document.createTextNode(
+    obterTextoSeguro(ponto.bairro) === 'Não informado'
+      ? obterTextoSeguro(ponto.endereco)
+      : `${obterTextoSeguro(ponto.endereco)} - ${obterTextoSeguro(ponto.bairro)}`
   );
 
-  endereco.appendChild(
-    enderecoTexto
-  );
+  endereco.appendChild(enderecoStrong);
+  endereco.appendChild(enderecoTexto);
 
+  // ==============================
+  // TELEFONE (NOVO BLOCO)
+  // ==============================
+  let telefoneEl = null;
+  if (ponto.telefone && typeof ponto.telefone === 'string' && ponto.telefone.trim() !== '') {
+    telefoneEl = document.createElement('p');
+    telefoneEl.style.marginTop = '0.5rem';
+
+    const telefoneStrong = document.createElement('strong');
+    telefoneStrong.textContent = 'Telefone: ';
+
+    const telefoneLink = document.createElement('a');
+    telefoneLink.href = `tel:${ponto.telefone.replace(/\D/g, '')}`;
+    telefoneLink.textContent = ponto.telefone;
+    telefoneLink.style.color = 'var(--verde-escuro)';
+
+    telefoneEl.appendChild(telefoneStrong);
+    telefoneEl.appendChild(telefoneLink);
+  }
 
   // ==============================
   // MATERIAIS
   // ==============================
+  const materiais = document.createElement('p');
+  materiais.style.marginTop = '0.5rem';
 
-  const materiais =
-    document.createElement('p');
+  const materiaisStrong = document.createElement('strong');
+  materiaisStrong.textContent = 'Materiais aceitos: ';
 
-  materiais.style.marginTop =
-    '0.5rem';
-
-
-  const materiaisStrong =
-    document.createElement('strong');
-
-  materiaisStrong.textContent =
-    'Materiais aceitos: ';
-
-
-  materiais.appendChild(
-    materiaisStrong
-  );
-
+  materiais.appendChild(materiaisStrong);
   materiais.appendChild(
     document.createTextNode(
-      obterTextoSeguro(
-        ponto.materiais,
-        'Não informado'
-      )
+      obterTextoSeguro(ponto.materiais, 'Não informado')
     )
   );
-
 
   // ==============================
   // HORÁRIO
   // ==============================
+  const horario = document.createElement('p');
+  horario.style.marginTop = '0.5rem';
 
-  const horario =
-    document.createElement('p');
+  const horarioStrong = document.createElement('strong');
+  horarioStrong.textContent = 'Horário de Funcionamento: ';
 
-  horario.style.marginTop =
-    '0.5rem';
-
-
-  const horarioStrong =
-    document.createElement('strong');
-
-  horarioStrong.textContent =
-    'Horário de Funcionamento: ';
-
-
-  horario.appendChild(
-    horarioStrong
-  );
-
+  horario.appendChild(horarioStrong);
   horario.appendChild(
     document.createTextNode(
-      obterTextoSeguro(
-        ponto.horario,
-        'Não informado'
-      )
+      obterTextoSeguro(ponto.horario, 'Não informado')
     )
   );
-
 
   // Adiciona os elementos ao modal
   modalBody.appendChild(titulo);
   modalBody.appendChild(endereco);
+  if (telefoneEl) {
+    modalBody.appendChild(telefoneEl);
+  }
   modalBody.appendChild(materiais);
   modalBody.appendChild(horario);
-
 
   // ==============================
   // GOOGLE MAPS
   // ==============================
-
   if (
     typeof ponto.link_maps === 'string' &&
     ponto.link_maps.trim() !== ''
   ) {
     try {
-      const urlMaps =
-        new URL(ponto.link_maps);
-
+      const urlMaps = new URL(ponto.link_maps);
 
       // Aceita apenas HTTP ou HTTPS
       if (
         urlMaps.protocol === 'http:' ||
         urlMaps.protocol === 'https:'
       ) {
-        const botaoMaps =
-          document.createElement('a');
+        const botaoMaps = document.createElement('a');
+        botaoMaps.href = urlMaps.href;
+        botaoMaps.target = '_blank';
+        botaoMaps.rel = 'noopener noreferrer';
+        botaoMaps.classList.add('btn-maps');
+        botaoMaps.style.display = 'inline-block';
+        botaoMaps.style.marginTop = '1rem';
+        botaoMaps.textContent = 'Ver no Google Maps 📍';
 
-        botaoMaps.href =
-          urlMaps.href;
-
-        botaoMaps.target =
-          '_blank';
-
-        botaoMaps.rel =
-          'noopener noreferrer';
-
-        botaoMaps.classList.add(
-          'btn-maps'
-        );
-
-        botaoMaps.style.display =
-          'inline-block';
-
-        botaoMaps.style.marginTop =
-          '1rem';
-
-        botaoMaps.textContent =
-          'Ver no Google Maps 📍';
-
-
-        modalBody.appendChild(
-          botaoMaps
-        );
+        modalBody.appendChild(botaoMaps);
       }
-
     } catch {
-      // Caso link_maps seja inválido,
-      // simplesmente não exibe o botão.
+      // Caso link_maps seja inválido, não exibe o botão.
     }
   }
 
-
   abrirModal(modalDetalhes);
 
-
   // Garante que o Leaflet recalcule o mapa
-  // depois de alterações na interface
   if (mapa) {
     setTimeout(() => {
       mapa.invalidateSize();
     }, 100);
   }
 }
-
 
 // ==========================================
 // FECHAMENTO DOS MODAIS
