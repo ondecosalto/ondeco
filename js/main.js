@@ -601,18 +601,44 @@ function aplicarFiltros() {
 
 
 // ==========================================
-// EVENTOS DE BUSCA (BOTÃO BUSCAR / LIMPAR)
+// FUNÇÕES AUXILIARES DE UX
 // ==========================================
 
-const inputBusca =
-  document.getElementById('input-busca');
+// Rola a tela suavemente até a seção de resultados no mobile
+function rolarParaResultados() {
+  const secaoPontos = document.getElementById('pontos-de-coleta');
+  if (secaoPontos) {
+    secaoPontos.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 
-const btnBuscar =
-  document.getElementById('btn-buscar');
+// Reseta a seleção visual e lógica das categorias para "Todos"
+function resetarCategoriasParaTodos() {
+  categoriaAtiva = 'todos';
 
-const formBusca =
-  document.getElementById('form-busca');
+  const botoesCategoria = document.querySelectorAll('.category-btn');
+  botoesCategoria.forEach(botao => {
+    botao.classList.remove('active');
+    botao.setAttribute('aria-pressed', 'false');
+  });
 
+  const btnTodos = document.querySelector('.category-btn[data-category="todos"]');
+  if (btnTodos) {
+    btnTodos.classList.add('active');
+    btnTodos.setAttribute('aria-pressed', 'true');
+  }
+}
+
+// Timer para controlar o scroll suave enquanto o usuário digita
+let timerScrollBusca = null;
+
+// ==========================================
+// EVENTOS DE BUSCA (BOTÃO BUSCAR / LIMPAR / INPUT)
+// ==========================================
+
+const inputBusca = document.getElementById('input-busca');
+const btnBuscar = document.getElementById('btn-buscar');
+const formBusca = document.getElementById('form-busca');
 
 // Alterna o botão entre "Buscar" e "Limpar"
 function atualizarEstadoBotaoBusca() {
@@ -622,7 +648,6 @@ function atualizarEstadoBotaoBusca() {
     btnBuscar.textContent = 'Limpar';
     btnBuscar.classList.add('btn-limpar');
     btnBuscar.setAttribute('aria-label', 'Limpar texto da busca');
-
   } else {
     btnBuscar.textContent = 'Buscar';
     btnBuscar.classList.remove('btn-limpar');
@@ -630,78 +655,73 @@ function atualizarEstadoBotaoBusca() {
   }
 }
 
-
 if (inputBusca) {
-  inputBusca.addEventListener(
-    'input',
-    () => {
+  inputBusca.addEventListener('input', () => {
+    const termo = inputBusca.value.trim();
+
+    // Se começou a digitar, reseta a categoria ativa para "Todos"
+    if (termo !== '') {
+      resetarCategoriasParaTodos();
+    }
+
+    atualizarEstadoBotaoBusca();
+    aplicarFiltros();
+
+    // Aguarda o usuário fazer uma breve pausa na digitação (800ms) para rolar a tela
+    clearTimeout(timerScrollBusca);
+    if (termo.length >= 2) {
+      timerScrollBusca = setTimeout(() => {
+        rolarParaResultados();
+      }, 800);
+    }
+  });
+}
+
+// Gerencia o envio do formulário (Clique no botão ou tecla Enter)
+if (formBusca) {
+  formBusca.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+
+    // Se o botão está no estado "Limpar"
+    if (inputBusca && inputBusca.value.trim() !== '') {
+      inputBusca.value = '';
+      clearTimeout(timerScrollBusca);
       atualizarEstadoBotaoBusca();
       aplicarFiltros();
+      inputBusca.focus();
+      // Não rola ao apenas limpar
+    } else {
+      aplicarFiltros();
+      rolarParaResultados(); // Rola ao dar Enter ou clicar em Buscar
     }
-  );
+  });
 }
-
-
-// Evita recarregar a página ao pressionar Enter
-if (formBusca) {
-  formBusca.addEventListener(
-    'submit',
-    (evento) => {
-      evento.preventDefault();
-
-      // Se já há texto, o botão funciona como "Limpar"
-      if (inputBusca && inputBusca.value.trim() !== '') {
-        inputBusca.value = '';
-        atualizarEstadoBotaoBusca();
-        aplicarFiltros();
-        inputBusca.focus();
-
-      } else {
-        aplicarFiltros();
-      }
-    }
-  );
-}
-
 
 // ==========================================
 // BOTÕES DE CATEGORIA (ARIA-PRESSED)
 // ==========================================
 
-const botoesCategoria =
-  document.querySelectorAll('.category-btn');
-
+const botoesCategoria = document.querySelectorAll('.category-btn');
 
 botoesCategoria.forEach(botao => {
   botao.addEventListener('click', () => {
-    const categoria =
-      botao.getAttribute('data-category');
+    const categoria = botao.getAttribute('data-category');
 
+    // Ao clicar em uma categoria, limpa o texto digitado na busca
+    if (inputBusca && inputBusca.value !== '') {
+      inputBusca.value = '';
+      clearTimeout(timerScrollBusca);
+      atualizarEstadoBotaoBusca();
+    }
 
-    // Clicou novamente na categoria ativa:
-    // volta para "todos"
+    // Clicou novamente na categoria ativa: volta para "todos"
     if (categoriaAtiva === categoria) {
-      categoriaAtiva = 'todos';
-
-      botoesCategoria.forEach(outroBotao => {
-        outroBotao.classList.remove('active');
-        outroBotao.setAttribute('aria-pressed', 'false');
-      });
-
-      const btnTodos =
-        document.querySelector('.category-btn[data-category="todos"]');
-
-      if (btnTodos) {
-        btnTodos.classList.add('active');
-        btnTodos.setAttribute('aria-pressed', 'true');
-      }
-
+      resetarCategoriasParaTodos();
     } else {
       botoesCategoria.forEach(outroBotao => {
         outroBotao.classList.remove('active');
         outroBotao.setAttribute('aria-pressed', 'false');
       });
-
 
       categoriaAtiva = categoria;
 
@@ -709,11 +729,10 @@ botoesCategoria.forEach(botao => {
       botao.setAttribute('aria-pressed', 'true');
     }
 
-
     aplicarFiltros();
+    rolarParaResultados(); // Rola suavemente até os resultados no mobile
   });
 });
-
 
 // ==========================================
 // MODAIS (ACESSÍVEIS)
