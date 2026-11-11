@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "nome": "CÁRITAS INTERPAROQUIAL",
+    "nome": "Cáritas Interparoquial",
     "bairro": "Jardim da Cidade II",
     "categoria": "eletronicos",
     "endereco": "Rua Campinas, 30, Jardim da Cidade II, Salto - SP",
@@ -90,11 +90,14 @@
       "Torradeiras",
       "Transmissores/receptores Bluetooth",
       "Ventiladores de Mesa"
-    ]
+    ],
+    "lng": -47.2790954,
+    "telefone": "(11) 4602-5140",
+    "lat": -23.2102352
   },
   {
     "id": 2,
-    "nome": "ECOPONTO 1",
+    "nome": "Ecoponto 1",
     "bairro": "Jardim das Nações",
     "categoria": "reciclaveis",
     "endereco": "Rua Argélia, 361, Jardim das Nações, Salto - SP",
@@ -120,11 +123,12 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "telefone": "0800 940 3203"
   },
   {
     "id": 3,
-    "nome": "ECOPONTO 2",
+    "nome": "Ecoponto 2",
     "bairro": "Jardim Santa Cruz",
     "categoria": "reciclaveis",
     "endereco": "Rua Rangel Pestana, 529, Jardim Santa Cruz, Salto - SP",
@@ -148,11 +152,14 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "lng": -47.264023,
+    "telefone": "0800 940 3203",
+    "lat": -23.2259923
   },
   {
     "id": 4,
-    "nome": "ECOPONTO 3",
+    "nome": "Ecoponto 3",
     "bairro": "Jardim São João",
     "categoria": "reciclaveis",
     "endereco": "Rua Vaticano, 650, Jardim São João, Salto - SP",
@@ -176,11 +183,14 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "lng": -47.3183315,
+    "telefone": "0800 940 3203",
+    "lat": -23.1750149
   },
   {
     "id": 5,
-    "nome": "ECOPONTO 4",
+    "nome": "Ecoponto 4",
     "bairro": "Jardim Cidade",
     "categoria": "reciclaveis",
     "endereco": "Rua Botucatu, 409, Jardim Cidade, Salto - SP",
@@ -204,11 +214,14 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "lng": -47.2721636,
+    "telefone": "0800 940 3203",
+    "lat": -23.2105862
   },
   {
     "id": 6,
-    "nome": "ECOPONTO 5",
+    "nome": "Ecoponto 5",
     "bairro": "São Pedro e São Paulo",
     "categoria": "reciclaveis",
     "endereco": "Rua Estado do Rio Grande do Sul, 1303, São Pedro e São Paulo, Salto - SP",
@@ -233,11 +246,14 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "lng": -47.3104057,
+    "telefone": "0800 940 3203",
+    "lat": -23.2020301
   },
   {
     "id": 7,
-    "nome": "ECOPONTO 6",
+    "nome": "Ecoponto 6",
     "bairro": "Jardim São Gabriel",
     "categoria": "reciclaveis",
     "endereco": "Rua São Raimundo, 85, Jardim São Gabriel, Salto - SP",
@@ -262,11 +278,14 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "lng": -47.3027646,
+    "telefone": "0800 940 3203",
+    "lat": -23.1801976
   },
   {
     "id": 8,
-    "nome": "ECOPONTO 7",
+    "nome": "Ecoponto 7",
     "bairro": "Parque Residencial Rondon",
     "categoria": "reciclaveis",
     "endereco": "Rua Domingos José da Cruz, 130, Parque Residencial Rondon, Salto - SP",
@@ -290,11 +309,14 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "lng": -47.2781401,
+    "telefone": "0800 940 3203",
+    "lat": -23.2177749
   },
   {
     "id": 9,
-    "nome": "ECOPONTO 8",
+    "nome": "Ecoponto 8",
     "bairro": "Salto Ville",
     "categoria": "reciclaveis",
     "endereco": "Rua Padre Carlos Corrêa Tolêdo Melo, 340, Salto Ville, Salto - SP",
@@ -319,11 +341,14 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "lng": -47.2675585,
+    "telefone": "0800 940 3203",
+    "lat": -23.2185867
   },
   {
     "id": 10,
-    "nome": "ECOPONTO 9",
+    "nome": "Ecoponto 9",
     "bairro": "Jardim Bandeirantes",
     "categoria": "reciclaveis",
     "endereco": "Rua Eurico Gaspar Dutra, 100, Jardim Bandeirantes, Salto - SP",
@@ -347,11 +372,14 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "lng": -47.2829594,
+    "telefone": "0800 940 3203",
+    "lat": -23.1986772
   },
   {
     "id": 11,
-    "nome": "ECOPONTO 10",
+    "nome": "Ecoponto 10",
     "bairro": "Jardim Santo Antônio",
     "categoria": "reciclaveis",
     "endereco": "Rua Carlos Gomes, 492, Jardim Santo Antônio, Salto - SP",
@@ -375,11 +403,14 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "lng": -47.2868437,
+    "telefone": "0800 940 3203",
+    "lat": -23.1886565
   },
   {
     "id": 12,
-    "nome": "ECOPONTO 11",
+    "nome": "Ecoponto 11",
     "bairro": "Jardim Planalto",
     "categoria": "reciclaveis",
     "endereco": "Rua das Nações Unidas, 1501, Jardim Planalto, Salto - SP",
@@ -404,11 +435,14 @@
       "Pilhas e baterias (pequeno porte – celular, controle e etc)",
       "Podas em geral",
       "Recicláveis"
-    ]
+    ],
+    "lng": -47.2698158,
+    "telefone": "0800 940 3203",
+    "lat": -23.1821964
   },
   {
     "id": 13,
-    "nome": "POSTO DE SAÚDE NAÇÕES",
+    "nome": "Posto de Saúde Nações",
     "bairro": "Jardim das Nações",
     "categoria": "medicamentos",
     "endereco": "Avenida dos Migrantes, 4, Jardim das Nações, Salto - SP",
@@ -428,11 +462,14 @@
       "Medicamentos controlados vencidos ou em desuso",
       "Agulhas e seringas usadas (perfurocortantes)",
       "Curativos, gazes e algodão que tenha tido contato com sangue ou secreções"
-    ]
+    ],
+    "lng": -47.2766021,
+    "telefone": "(11) 4028-2554",
+    "lat": -23.1927969
   },
   {
     "id": 14,
-    "nome": "POSTO DE SAÚDE NAÇÕES UNIDAS",
+    "nome": "Posto de Saúde Nações Unidas",
     "bairro": "Jardim Planalto",
     "categoria": "medicamentos",
     "endereco": "Rua das Nações Unidas, 1425, Jardim Planalto, Salto - SP",
@@ -452,11 +489,14 @@
       "Medicamentos controlados vencidos ou em desuso",
       "Agulhas e seringas usadas (perfurocortantes)",
       "Curativos, gazes e algodão que tenha tido contato com sangue ou secreções"
-    ]
+    ],
+    "lng": -47.2703289,
+    "telefone": "(11) 4840-9955",
+    "lat": -23.1826631
   },
   {
     "id": 15,
-    "nome": "CENTRO DE SAÚDE II",
+    "nome": "Centro de Saúde II",
     "bairro": "Centro",
     "categoria": "medicamentos",
     "endereco": "Rua Rodrigues Alves, 655, Centro, Salto - SP",
@@ -476,11 +516,14 @@
       "Medicamentos controlados vencidos ou em desuso",
       "Agulhas e seringas usadas (perfurocortantes)",
       "Curativos, gazes e algodão que tenha tido contato com sangue ou secreções"
-    ]
+    ],
+    "lng": -47.2920918,
+    "telefone": "(11) 4028-2514",
+    "lat": -23.201773
   },
   {
     "id": 16,
-    "nome": "POSTO DE SAÚDE SANTA CRUZ",
+    "nome": "Posto de Saúde Santa Cruz",
     "bairro": "Jardim Santa Cruz",
     "categoria": "medicamentos",
     "endereco": "Avenida Rangel Pestana, 71, Jardim Santa Cruz, Salto - SP",
@@ -500,11 +543,14 @@
       "Medicamentos controlados vencidos ou em desuso",
       "Agulhas e seringas usadas (perfurocortantes)",
       "Curativos, gazes e algodão que tenha tido contato com sangue ou secreções"
-    ]
+    ],
+    "lng": -47.2670466,
+    "telefone": "(11) 4029-8820",
+    "lat": -23.2250667
   },
   {
     "id": 17,
-    "nome": "POSTO DE SAÚDE BELA VISTA",
+    "nome": "Posto de Saúde Bela Vista",
     "bairro": "Bela Vista",
     "categoria": "medicamentos",
     "endereco": "Rua Emílio Ribas, 380, Bela Vista, Salto - SP",
@@ -524,11 +570,14 @@
       "Medicamentos controlados vencidos ou em desuso",
       "Agulhas e seringas usadas (perfurocortantes)",
       "Curativos, gazes e algodão que tenha tido contato com sangue ou secreções"
-    ]
+    ],
+    "lng": -47.2910704,
+    "telefone": "(11) 4028-2547",
+    "lat": -23.1913327
   },
   {
     "id": 18,
-    "nome": "POSTO DE SAÚDE MOUTONNÉE",
+    "nome": "Posto de Saúde Moutonnée",
     "bairro": "Loteamento Terras de São Pedro e São Paulo",
     "categoria": "medicamentos",
     "endereco": "Avenida Rocha Moutonnée, 2800, Loteamento Terras de São Pedro e São Paulo, Salto - SP",
@@ -548,11 +597,14 @@
       "Medicamentos controlados vencidos ou em desuso",
       "Agulhas e seringas usadas (perfurocortantes)",
       "Curativos, gazes e algodão que tenha tido contato com sangue ou secreções"
-    ]
+    ],
+    "lng": -47.3037816,
+    "telefone": "(11) 4028-2541",
+    "lat": -23.2111714
   },
   {
     "id": 19,
-    "nome": "POSTO DE SAÚDE CECAP",
+    "nome": "Posto de Saúde CECAP",
     "bairro": "Nossa Senhora do Monte Serrat",
     "categoria": "medicamentos",
     "endereco": "Avenida das Bandeiras, SEM NÚMERO, Nossa Senhora do Monte Serrat, Salto - SP",
@@ -572,11 +624,14 @@
       "Medicamentos controlados vencidos ou em desuso",
       "Agulhas e seringas usadas (perfurocortantes)",
       "Curativos, gazes e algodão que tenha tido contato com sangue ou secreções"
-    ]
+    ],
+    "lng": -47.2712142,
+    "telefone": "(11) 4029-8819",
+    "lat": -23.2108805
   },
   {
     "id": 20,
-    "nome": "POSTO DE SAÚDE DONALÍSIO",
+    "nome": "Posto de Saúde Donalísio",
     "bairro": "Jardim Donalísio",
     "categoria": "medicamentos",
     "endereco": "Rua Vicente Donalísio, 252, Jardim Donalísio, Salto - SP",
@@ -596,11 +651,14 @@
       "Medicamentos controlados vencidos ou em desuso",
       "Agulhas e seringas usadas (perfurocortantes)",
       "Curativos, gazes e algodão que tenha tido contato com sangue ou secreções"
-    ]
+    ],
+    "lng": -47.2833398,
+    "telefone": "(11) 4028-2548",
+    "lat": -23.1890709
   },
   {
     "id": 21,
-    "nome": "POSTO DE SAÚDE SÃO GABRIEL",
+    "nome": "Posto de Saúde São Gabriel",
     "bairro": "Jardim São Gabriel",
     "categoria": "medicamentos",
     "endereco": "Rua São José, SEM NÚMERO, Jardim São Gabriel, Salto - SP",
@@ -620,11 +678,14 @@
       "Medicamentos controlados vencidos ou em desuso",
       "Agulhas e seringas usadas (perfurocortantes)",
       "Curativos, gazes e algodão que tenha tido contato com sangue ou secreções"
-    ]
+    ],
+    "lng": -47.3037119,
+    "telefone": "(11) 4028-2534",
+    "lat": -23.1793022
   },
   {
     "id": 22,
-    "nome": "POSTO DE SAÚDE SALTENSE",
+    "nome": "Posto de Saúde Saltense",
     "bairro": "Jardim Saltense",
     "categoria": "medicamentos",
     "endereco": "Rua André Telha, 255, Jardim Saltense, Salto - SP",
@@ -644,11 +705,14 @@
       "Medicamentos controlados vencidos ou em desuso",
       "Agulhas e seringas usadas (perfurocortantes)",
       "Curativos, gazes e algodão que tenha tido contato com sangue ou secreções"
-    ]
+    ],
+    "lng": -47.3163381,
+    "telefone": "(11) 4028-4310",
+    "lat": -23.1781891
   },
   {
     "id": 23,
-    "nome": "Borracharia do coquinho",
+    "nome": "Borracharia do Coquinho",
     "bairro": "São Gabriel",
     "categoria": "outros",
     "endereco": "R. São José, 185",
@@ -668,7 +732,9 @@
     "data_levantamento": "2026-11-08",
     "endereco_pesquisa": "R. São José, 185 - São Gabriel, Salto",
     "horario_pesquisa": "Domingo à domingo (todos os dias) 24 horas",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "materiais_texto_fonte": "Pneus usados em bom estado e conservados.",
+    "lng": -47.304233440344724,
+    "lat": -23.1795087185153
   },
   {
     "id": 24,
@@ -677,25 +743,15 @@
     "categoria": "outros",
     "endereco": "Av. dos Migrantes, 816 - Sl 70",
     "materiais": "Roupas, calçados e acessórios de vestuário adulto feminino usados, higienizados e em bom estado.",
-    "horario": "Segunda a sexta das 9h às 18h; Sábado das 9h às 14h",
+    "horario": "Segunda a sexta das 09h às 18h; Sábado das 09h às 14h",
     "link_maps": "https://maps.app.goo.gl/oRupp3GsCmdVRgEDA",
     "tipo_ponto": "Brechó",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Exclusivo para vestuário adulto feminino",
-      "Peças de roupas usadas (camisas, blusas, calças, shorts, etc.) em bom estado, conservadas, sem furo, higienizadas, sem manchas, sem bolinhas de contato, sem pelo",
-      "Calçados usados (tênis, sapatilha, sapato social, bota, etc.) sem sola se desfazendo, em bom estado, conservadas, sem furo, higienizadas, sem manchas, sem bolinhas de contato, sem pelo",
-      "Acessórios usados (bolsa, chapéu, boné, colar, brinco, pulseira, cinto, óculos de sol, etc.) higienizadas, em bom estado, conservadas, sem furo, sem manchas, sem bolinhas de contato, sem pelo."
-    ],
     "telefone": "(11) 96902-7972",
-    "numero_levantamento_isabella": 2,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "Av. dos Migrantes, 816 - Sl 70 - Jardim Planalto, Salto",
-    "horario_pesquisa": "Segunda à sexta das 09:00 ás 18:00\nSábado das 09:00 ás 14:00",
-    "materiais_texto_fonte": "Exclusivo para vestuário adulto feminino\n\nPeças de roupas usadas (camisas, blusas, calças, shorts, etc.) em bom estado, conservadas, sem furo, higienizadas, sem manchas, sem bolinhas de contato, sem pelo;\nCalçados usados (tênis, sapatilha, sapato social, bota, etc.) sem sola se desfazendo, em bom estado, conservadas, sem furo, higienizadas, sem manchas, sem bolinhas de contato, sem pelo;\nAcessórios usados (bolsa, chapéu, boné, colar, brinco, pulseira, cinto, óculos de sol, etc.) higienizadas, em bom estado, conservadas, sem furo, sem manchas, sem bolinhas de contato, sem pelo."
+    "lng": -47.278079606585514,
+    "lat": -23.19168804379872
   },
   {
     "id": 25,
@@ -704,39 +760,15 @@
     "categoria": "outros",
     "endereco": "R. Barão do Rio Branco, 376",
     "materiais": "Roupas, calçados e acessórios usados; utensílios de cozinha, livros, brinquedos, ferramentas, eletrônicos e eletrodomésticos em boas condições; material escolar e outros itens descritos na pesquisa",
-    "horario": "Segunda a sexta das 9h às 18h; Sábado das 9h às 13h",
+    "horario": "Segunda a sexta das 09h às 18h; Sábado das 09h às 13h",
     "link_maps": "https://maps.app.goo.gl/FoxoZ1B7B7u77A2V6",
     "tipo_ponto": "Bazar",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Peças de roupas usadas (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Calçados usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Acessórios usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Itens de cozinha (colheres, garfos, facas, panelas, pratos, copos, etc.)",
-      "Livros, gibis, revistas",
-      "Brinquedos, bonecas, pelúcias, jogos de tabuleiros, quebra-cabeça, etc",
-      "Ferramentas",
-      "Discos de vinil",
-      "CDs/DVDs",
-      "Eletrodomésticos usados (micro-ondas, fogão, cooktop, geladeira, máquina de lavar, ventilador, etc.) em boas condições",
-      "Eletrônicos usados (celular, computador, notebook, fone de ouvido, videogame, etc.) usados em boas condições",
-      "Material escolar usado (lápis, borracha, estojo, caneta, apontador, caderno, réguas, tesoura, tinta guache, cola bastão/líquida, massinha de modelar, mochila, etc.) usados em boa condição",
-      "Produtos para higiene pessoal (shampoo, condicionador, sabonete, desodorante, fralda geriátrica/infantil, absorvente, pasta de dente, escova de dente, toalha de banho, etc.) em boas condições",
-      "Produtos para limpeza e higiene usados (vassoura, pá de lixo, rodo, mop, pregador de roupa, pano de prato, esponja, luva de borracha, etc.) em boas condições",
-      "Cadeira de roda",
-      "Bengala",
-      "Carrinho de bebê",
-      "Etc."
-    ],
     "telefone": "(11) 94867-1644",
-    "numero_levantamento_isabella": 3,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Barão do Rio Branco, 376 - Centro, Salto",
-    "horario_pesquisa": "Segunda à sexta das 09:00 às 18:00\nSábado das 09:00 às 13:00",
-    "materiais_texto_fonte": "Peças de roupas usadas (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nCalçados usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nAcessórios usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nItens de cozinha (colheres, garfos, facas, panelas, pratos, copos, etc.);\nLivros, gibis, revistas;\nBrinquedos, bonecas, pelúcias, jogos de tabuleiros, quebra-cabeça, etc;\nFerramentas;\nDiscos de vinil;\nCDs/DVDs;\nEletrodomésticos usados (micro-ondas, fogão, cooktop, geladeira, máquina de lavar, ventilador, etc.) em boas condições;\nEletrônicos usados (celular, computador, notebook, fone de ouvido, videogame, etc.) usados em boas condições;\nMaterial escolar usado (lápis, borracha, estojo, caneta, apontador, caderno, réguas, tesoura, tinta guache, cola bastão/líquida, massinha de modelar, mochila, etc.) usados em boa condição;\nProdutos para higiene pessoal (shampoo, condicionador, sabonete, desodorante, fralda geriátrica/infantil, absorvente, pasta de dente, escova de dente, toalha de banho, etc.) em boas condições;\nProdutos para limpeza e higiene usados (vassoura, pá de lixo, rodo, mop, pregador de roupa, pano de prato, esponja, luva de borracha, etc.) em boas condições;\nCadeira de roda;\nBengala;\nCarrinho de bebê;\nEtc."
+    "lng": -47.2899887,
+    "lat": -23.20377025498979
   },
   {
     "id": 26,
@@ -745,81 +777,32 @@
     "categoria": "outros",
     "endereco": "R. dos Caras, 135",
     "materiais": "Roupas, calçados e acessórios usados; utensílios de cozinha, livros, brinquedos, ferramentas, eletrônicos e eletrodomésticos em boas condições; material escolar e outros itens descritos na pesquisa",
-    "horario": "Segunda a sexta das 9h às 18h; Sábado das 9h às 13h",
+    "horario": "Segunda a sexta das 09h às 18h; Sábado das 09h às 13h",
     "link_maps": "https://maps.app.goo.gl/Jt16i5AbihYYobBVA",
     "tipo_ponto": "Bazar",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Peças de roupas usadas (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Calçados usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Acessórios usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Itens de cozinha (colheres, garfos, facas, panelas, pratos, copos, etc.)",
-      "Livros, gibis, revistas",
-      "Brinquedos, bonecas, pelúcias, jogos de tabuleiros, quebra-cabeça, etc",
-      "Ferramentas",
-      "Discos de vinil",
-      "CDs/DVDs",
-      "Eletrodomésticos usados (micro-ondas, fogão, cooktop, geladeira, máquina de lavar, ventilador, etc.) em boas condições",
-      "Eletrônicos usados (celular, computador, notebook, fone de ouvido, videogame, etc.) usados em boas condições",
-      "Material escolar usado (lápis, borracha, estojo, caneta, apontador, caderno, réguas, tesoura, tinta guache, cola bastão/líquida, massinha de modelar, mochila, etc.) usados em boa condição",
-      "Produtos para higiene pessoal (shampoo, condicionador, sabonete, desodorante, fralda geriátrica/infantil, absorvente, pasta de dente, escova de dente, toalha de banho, etc.) em boas condições",
-      "Produtos para limpeza e higiene usados (vassoura, pá de lixo, rodo, mop, pregador de roupa, pano de prato, esponja, luva de borracha, etc.) em boas condições",
-      "Cadeira de roda",
-      "Bengala",
-      "Carrinho de bebê",
-      "Etc."
-    ],
     "telefone": "(11) 98770-0045",
-    "numero_levantamento_isabella": 4,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. dos Caras, 135 - Salto de São José, Salto",
-    "horario_pesquisa": "Segunda à sexta das 09:00 às 18:00\nSábado das 09:00 às 13:00",
-    "materiais_texto_fonte": "Peças de roupas usadas (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nCalçados usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nAcessórios usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nItens de cozinha (colheres, garfos, facas, panelas, pratos, copos, etc.);\nLivros, gibis, revistas;\nBrinquedos, bonecas, pelúcias, jogos de tabuleiros, quebra-cabeça, etc;\nFerramentas;\nDiscos de vinil;\nCDs/DVDs;\nEletrodomésticos usados (micro-ondas, fogão, cooktop, geladeira, máquina de lavar, ventilador, etc.) em boas condições;\nEletrônicos usados (celular, computador, notebook, fone de ouvido, videogame, etc.) usados em boas condições;\nMaterial escolar usado (lápis, borracha, estojo, caneta, apontador, caderno, réguas, tesoura, tinta guache, cola bastão/líquida, massinha de modelar, mochila, etc.) usados em boa condição;\nProdutos para higiene pessoal (shampoo, condicionador, sabonete, desodorante, fralda geriátrica/infantil, absorvente, pasta de dente, escova de dente, toalha de banho, etc.) em boas condições;\nProdutos para limpeza e higiene usados (vassoura, pá de lixo, rodo, mop, pregador de roupa, pano de prato, esponja, luva de borracha, etc.) em boas condições;\nCadeira de roda;\nBengala;\nCarrinho de bebê;\nEtc."
+    "lng": -47.30937449999999,
+    "lat": -23.214200045585617
   },
   {
     "id": 27,
     "nome": "Bazar Solidário Casa Naim - Loja 3",
-    "bairro": "Jardim Sao Joao",
+    "bairro": "Jardim São João",
     "categoria": "outros",
     "endereco": "Av. Jose Maria Marques de Oliveira, 1203",
     "materiais": "Móveis e artigos de decoração usados em boas condições; Roupas, calçados e acessórios usados; utensílios de cozinha, livros, brinquedos, ferramentas, eletrônicos e eletrodomésticos em boas condições; material escolar e outros itens descritos na pesquisa",
-    "horario": "Segunda a sexta das 9h às 18h; Sábado das 9h às 13h",
+    "horario": "Segunda a sexta das 09h às 18h; Sábado das 09h às 13h",
     "link_maps": "https://maps.app.goo.gl/f3zbfZG5XELPoonQA",
     "tipo_ponto": "Bazar",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Móveis e decorações usados (espelho, sofá, cama, cadeiras, mesas, quadros, tapetes, etc.) conservados",
-      "Peças de roupas usadas (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Calçados usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Acessórios usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Itens de cozinha (colheres, garfos, facas, panelas, pratos, copos, etc.)",
-      "Livros, gibis, revistas",
-      "Brinquedos, bonecas, pelúcias, jogos de tabuleiros, quebra-cabeça, etc",
-      "Ferramentas",
-      "Discos de vinil",
-      "CDs/DVDs",
-      "Eletrodomésticos usados (micro-ondas, fogão, cooktop, geladeira, máquina de lavar, ventilador, etc.) em boas condições",
-      "Eletrônicos usados (celular, computador, notebook, fone de ouvido, videogame, etc.) usados em boas condições",
-      "Material escolar usado (lápis, borracha, estojo, caneta, apontador, caderno, réguas, tesoura, tinta guache, cola bastão/líquida, massinha de modelar, mochila, etc.) usados em boa condição",
-      "Produtos para higiene pessoal (shampoo, condicionador, sabonete, desodorante, fralda geriátrica/infantil, absorvente, pasta de dente, escova de dente, toalha de banho, etc.) em boas condições",
-      "Produtos para limpeza e higiene usados (vassoura, pá de lixo, rodo, mop, pregador de roupa, pano de prato, esponja, luva de borracha, etc.) em boas condições",
-      "Cadeira de roda",
-      "Bengala",
-      "Carrinho de bebê",
-      "Etc."
-    ],
     "telefone": "(11) 98770-0156",
-    "numero_levantamento_isabella": 5,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "Av. Jose Maria Marques de Oliveira, 1203 - Jardim Sao Joao, Salto",
-    "horario_pesquisa": "Segunda à sexta das 09:00 às 18:00\nSábado das 09:00 às 13:00",
-    "materiais_texto_fonte": "Móveis e decorações usados (espelho, sofá, cama, cadeiras, mesas, quadros, tapetes, etc.) conservados;\nPeças de roupas usadas (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nCalçados usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nAcessórios usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nItens de cozinha (colheres, garfos, facas, panelas, pratos, copos, etc.);\nLivros, gibis, revistas;\nBrinquedos, bonecas, pelúcias, jogos de tabuleiros, quebra-cabeça, etc;\nFerramentas;\nDiscos de vinil;\nCDs/DVDs;\nEletrodomésticos usados (micro-ondas, fogão, cooktop, geladeira, máquina de lavar, ventilador, etc.) em boas condições;\nEletrônicos usados (celular, computador, notebook, fone de ouvido, videogame, etc.) usados em boas condições;\nMaterial escolar usado (lápis, borracha, estojo, caneta, apontador, caderno, réguas, tesoura, tinta guache, cola bastão/líquida, massinha de modelar, mochila, etc.) usados em boa condição;\nProdutos para higiene pessoal (shampoo, condicionador, sabonete, desodorante, fralda geriátrica/infantil, absorvente, pasta de dente, escova de dente, toalha de banho, etc.) em boas condições;\nProdutos para limpeza e higiene usados (vassoura, pá de lixo, rodo, mop, pregador de roupa, pano de prato, esponja, luva de borracha, etc.) em boas condições;\nCadeira de roda;\nBengala;\nCarrinho de bebê;\nEtc."
+    "lng": -47.31274332257287,
+    "lat": -23.176454048373138
   },
   {
     "id": 28,
@@ -828,39 +811,15 @@
     "categoria": "outros",
     "endereco": "R. Floriano Peixoto, 2477",
     "materiais": "Roupas, calçados e acessórios usados; utensílios de cozinha, livros, brinquedos, ferramentas, eletrônicos e eletrodomésticos em boas condições; material escolar e outros itens descritos na pesquisa",
-    "horario": "Segunda a sexta das 9h às 18h; Sábado das 9h às 13h",
+    "horario": "Segunda a sexta das 09h às 18h; Sábado das 09h às 13h",
     "link_maps": "https://maps.app.goo.gl/SkMSHejb2bGkiQcf6",
     "tipo_ponto": "Bazar",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Peças de roupas usadas (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Calçados usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Acessórios usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado",
-      "Itens de cozinha (colheres, garfos, facas, panelas, pratos, copos, etc.)",
-      "Livros, gibis, revistas",
-      "Brinquedos, bonecas, pelúcias, jogos de tabuleiros, quebra-cabeça, etc",
-      "Ferramentas",
-      "Discos de vinil",
-      "CDs/DVDs",
-      "Eletrodomésticos usados (micro-ondas, fogão, cooktop, geladeira, máquina de lavar, ventilador, etc.) em boas condições",
-      "Eletrônicos usados (celular, computador, notebook, fone de ouvido, videogame, etc.) usados em boas condições",
-      "Material escolar usado (lápis, borracha, estojo, caneta, apontador, caderno, réguas, tesoura, tinta guache, cola bastão/líquida, massinha de modelar, mochila, etc.) usados em boa condição",
-      "Produtos para higiene pessoal (shampoo, condicionador, sabonete, desodorante, fralda geriátrica/infantil, absorvente, pasta de dente, escova de dente, toalha de banho, etc.) em boas condições",
-      "Produtos para limpeza e higiene usados (vassoura, pá de lixo, rodo, mop, pregador de roupa, pano de prato, esponja, luva de borracha, etc.) em boas condições",
-      "Cadeira de roda",
-      "Bengala",
-      "Carrinho de bebê",
-      "Etc."
-    ],
     "telefone": "(11) 95042-5186",
-    "numero_levantamento_isabella": 6,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Floriano Peixoto, 2477 - Jardim Sontag, Salto",
-    "horario_pesquisa": "Segunda à sexta das 09:00 às 18:00\nSábado das 09:00 às 13:00",
-    "materiais_texto_fonte": "Peças de roupas usadas (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nCalçados usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nAcessórios usados (vestuário feminino, masculino, adulto e infantil) higienizados e em bom estado;\nItens de cozinha (colheres, garfos, facas, panelas, pratos, copos, etc.);\nLivros, gibis, revistas;\nBrinquedos, bonecas, pelúcias, jogos de tabuleiros, quebra-cabeça, etc;\nFerramentas;\nDiscos de vinil;\nCDs/DVDs;\nEletrodomésticos usados (micro-ondas, fogão, cooktop, geladeira, máquina de lavar, ventilador, etc.) em boas condições;\nEletrônicos usados (celular, computador, notebook, fone de ouvido, videogame, etc.) usados em boas condições;\nMaterial escolar usado (lápis, borracha, estojo, caneta, apontador, caderno, réguas, tesoura, tinta guache, cola bastão/líquida, massinha de modelar, mochila, etc.) usados em boa condição;\nProdutos para higiene pessoal (shampoo, condicionador, sabonete, desodorante, fralda geriátrica/infantil, absorvente, pasta de dente, escova de dente, toalha de banho, etc.) em boas condições;\nProdutos para limpeza e higiene usados (vassoura, pá de lixo, rodo, mop, pregador de roupa, pano de prato, esponja, luva de borracha, etc.) em boas condições;\nCadeira de roda;\nBengala;\nCarrinho de bebê;\nEtc."
+    "lng": -47.27630795767056,
+    "lat": -23.193772537184184
   },
   {
     "id": 29,
@@ -869,22 +828,15 @@
     "categoria": "pilhas",
     "endereco": "R. Campos Salles, 725",
     "materiais": "Pilhas usadas.",
-    "horario": "Segunda a sábado das 7h às 22h; Domingo das 7h às 20h",
+    "horario": "Segunda a sábado das 07h às 22h; Domingo das 07h às 20h",
     "link_maps": "https://maps.app.goo.gl/DiVrhoeRPtijYZVT6",
     "tipo_ponto": "Mercado",
     "categorias": [
       "pilhas"
     ],
-    "materiais_pesquisados": [
-      "Pilhas velhas."
-    ],
     "telefone": "(11) 3004-2222",
-    "numero_levantamento_isabella": 7,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Campos Salles, 725 - Vila Nova, Salto",
-    "horario_pesquisa": "Segunda à sábado das 07:00 às 22:00\nDomingo das 07:00 às 20:00",
-    "materiais_texto_fonte": "Pilhas velhas."
+    "lng": -47.28937637974557,
+    "lat": -23.200523339705633
   },
   {
     "id": 30,
@@ -893,26 +845,16 @@
     "categoria": "medicamentos",
     "endereco": "Av. Dom Pedro II, 321",
     "materiais": "Medicamentos domiciliares vencidos ou em desuso; caixas/embalagens de medicamentos e bulas; pilhas usadas.",
-    "horario": "Todos os dias das 7h às 23h",
+    "horario": "Todos os dias das 07h às 23h",
     "link_maps": "https://maps.app.goo.gl/t356z7H9VuM8GUAb8",
     "tipo_ponto": "Farmácia",
     "categorias": [
       "medicamentos",
       "pilhas"
     ],
-    "materiais_pesquisados": [
-      "Medicamentos domiciliares vencidos e em desuso",
-      "Caixas/embalagens de remédio",
-      "Bulas",
-      "Pilhas velhas."
-    ],
     "telefone": "(11) 95039-3712",
-    "numero_levantamento_isabella": 8,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "Av. Dom Pedro II, 321 - Vila Nova, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) das 07:00 às 23:00",
-    "materiais_texto_fonte": "Medicamentos domiciliares vencidos e em desuso;\nCaixas/embalagens de remédio;\nBulas;\nPilhas velhas."
+    "lng": -47.292121891278214,
+    "lat": -23.205063412222735
   },
   {
     "id": 31,
@@ -921,24 +863,15 @@
     "categoria": "medicamentos",
     "endereco": "R. Nove de Julho, 1027",
     "materiais": "Medicamentos domiciliares vencidos ou em desuso; caixas/embalagens de medicamentos e bulas.",
-    "horario": "Todos os dias das 7h às 23h",
+    "horario": "Todos os dias das 07h às 23h",
     "link_maps": "https://maps.app.goo.gl/FcWiD1jmWKY48DBS7",
     "tipo_ponto": "Farmácia",
     "categorias": [
       "medicamentos"
     ],
-    "materiais_pesquisados": [
-      "Medicamentos domiciliares vencidos e em desuso",
-      "Caixas/embalagens de remédio",
-      "Bulas."
-    ],
     "telefone": "(11) 4028-7011",
-    "numero_levantamento_isabella": 9,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Nove de Julho, 1027 - Vila Nova, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) das 07:00 às 23:00",
-    "materiais_texto_fonte": "Medicamentos domiciliares vencidos e em desuso;\nCaixas/embalagens de remédio;\nBulas."
+    "lng": -47.28837232978913,
+    "lat": -23.20004971786708
   },
   {
     "id": 32,
@@ -947,24 +880,15 @@
     "categoria": "medicamentos",
     "endereco": "R. Floriano Peixoto, 2505",
     "materiais": "Medicamentos domiciliares vencidos ou em desuso; caixas/embalagens de medicamentos e bulas.",
-    "horario": "Todos os dias das 7h às 23h",
+    "horario": "Todos os dias das 07h às 23h",
     "link_maps": "https://maps.app.goo.gl/1QJeiUrkUYBwgor1A",
     "tipo_ponto": "Farmácia",
     "categorias": [
       "medicamentos"
     ],
-    "materiais_pesquisados": [
-      "Medicamentos domiciliares vencidos e em desuso",
-      "Caixas/embalagens de remédio",
-      "Bulas"
-    ],
     "telefone": "(11) 4029-3624",
-    "numero_levantamento_isabella": 10,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Floriano Peixoto, 2505 - Jardim das Nações, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) das 07:00 às 23:00",
-    "materiais_texto_fonte": "Medicamentos domiciliares vencidos e em desuso;\nCaixas/embalagens de remédio;\nBulas"
+    "lng": -47.2760263117728,
+    "lat": -23.193715983771988
   },
   {
     "id": 33,
@@ -973,22 +897,15 @@
     "categoria": "outros",
     "endereco": "R. São Gonçalo, 142",
     "materiais": "Pneus usados em bom estado e conservados.",
-    "horario": "Segunda a sábado das 9h às 2h; Domingo das 10h às 22h",
+    "horario": "Segunda a sábado das 09h às 02h; Domingo das 10h às 22h",
     "link_maps": "https://maps.app.goo.gl/27oXTya4TgT2rEvD7",
     "tipo_ponto": "Borracharia",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 97474-9555",
-    "numero_levantamento_isabella": 11,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. São Gonçalo, 142 - Jardim São Judas Tadeu, Salto",
-    "horario_pesquisa": "Segunda à sábado das 09:00 às 02:00\nDomingo das 10:00 às 22:00",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.30582505819226,
+    "lat": -23.179073743013838
   },
   {
     "id": 34,
@@ -997,22 +914,15 @@
     "categoria": "outros",
     "endereco": "R. Tangará, 15",
     "materiais": "Pneus usados em bom estado e conservados.",
-    "horario": "Segunda a sexta das 8h às 18h; Sábado das 8h às 16h; Domingo das 8h às 12h",
+    "horario": "Segunda a sexta das 08h às 18h; Sábado das 08h às 16h; Domingo das 08h às 12h",
     "link_maps": "https://maps.app.goo.gl/ydjUfbGemhW8HVqC8",
     "tipo_ponto": "Borracharia",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 95076-4018",
-    "numero_levantamento_isabella": 12,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Tangará, 15 - Santa Lucia, Salto",
-    "horario_pesquisa": "Segunda à sexta das 08:00 às 18:00\nSábado das 08:00 às 16:00\nDomingo das 08:00 às 12:00",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.28537500711089,
+    "lat": -23.190570191620452
   },
   {
     "id": 35,
@@ -1021,50 +931,36 @@
     "categoria": "outros",
     "endereco": "R. Nove de Julho, 1895",
     "materiais": "Pneus usados em bom estado e conservados.",
-    "horario": "Segunda a sexta das 8h às 18h; Sábado das 8h às 13h",
+    "horario": "Segunda a sexta das 08h às 18h; Sábado das 08h às 13h",
     "link_maps": "https://maps.app.goo.gl/mBeCvjnJmmLVt9Cr7",
     "tipo_ponto": "Borracharia",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 4028-2126",
-    "numero_levantamento_isabella": 13,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Nove de Julho, 1895 - Vila Roma, Salto",
-    "horario_pesquisa": "Segunda à sexta das 08:00 às 18:00\nSábado das 08:00 às 13:00",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.28407367252029,
+    "lat": -23.192725284993404
   },
   {
     "id": 36,
     "nome": "Borracharia do Piá Salto",
-    "bairro": "Parque imperial",
+    "bairro": "Parque Imperial",
     "categoria": "outros",
     "endereco": "R. Batista Ceratti, 55",
     "materiais": "Pneus usados em bom estado e conservados.",
-    "horario": "Segunda a sexta das 8h às 18h; Sábado das 8h às 15h",
-    "link_maps": null,
+    "horario": "Segunda a sexta das 08h às 18h; Sábado das 08h às 15h",
+    "link_maps": "https://maps.app.goo.gl/H5753wm38Yu7qatL8",
     "tipo_ponto": "Borracharia",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 99756-8403",
-    "numero_levantamento_isabella": 14,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Batista Ceratti, 55 - Parque imperial, Salto",
-    "horario_pesquisa": "Segunda à sexta das 08:00 às 18:00\nSábado das 08:00 às 15:00",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.26259102878851,
+    "lat": -23.21197237175541
   },
   {
     "id": 37,
-    "nome": "JC Service Auto Mecánica & Elétrica – Socorro Mecânico 24 horas",
+    "nome": "JC Service Auto Mecânica & Elétrica – Socorro Mecânico 24 Horas",
     "bairro": "Jardim Nair Maria",
     "categoria": "outros",
     "endereco": "R. Dr. Martinho de Cicero, 405",
@@ -1075,16 +971,9 @@
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 93266-9100",
-    "numero_levantamento_isabella": 15,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Dr. Martinho de Cicero, 405 - Jardim Nair Maria, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) 24 horas",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.26379887277188,
+    "lat": -23.181668396318894
   },
   {
     "id": 38,
@@ -1093,22 +982,15 @@
     "categoria": "outros",
     "endereco": "Rua Santa Bernadete, 478",
     "materiais": "Pneus usados em bom estado e conservados.",
-    "horario": "Segunda a sábado das 8h às 18h",
+    "horario": "Segunda a sábado das 08h às 18h",
     "link_maps": "https://maps.app.goo.gl/YHz3kBztgY9oTLRx6",
     "tipo_ponto": "Borracharia",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 96191-3022",
-    "numero_levantamento_isabella": 16,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "Rua Santa Bernadete, 478 - Jardim Alvorada, Salto",
-    "horario_pesquisa": "Segunda à sábado das 08:00 às 18:00",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.312066283726864,
+    "lat": -23.17458571517063
   },
   {
     "id": 39,
@@ -1117,22 +999,15 @@
     "categoria": "outros",
     "endereco": "Av. Cásper Líbero, 1935",
     "materiais": "Pneus usados em bom estado e conservados.",
-    "horario": "Todos os dias das 8h às 19h",
+    "horario": "Todos os dias das 08h às 19h",
     "link_maps": "https://maps.app.goo.gl/6oZA8rhTzFGVYC75A",
     "tipo_ponto": "Borracharia",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 98991-9103",
-    "numero_levantamento_isabella": 17,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "Av. Cásper Líbero, 1935 - Jardim Santa Cruz, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) das 08:00 às 19:00",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.26480872650333,
+    "lat": -23.218252345301767
   },
   {
     "id": 40,
@@ -1141,50 +1016,36 @@
     "categoria": "outros",
     "endereco": "Av. Mal. Rondon, 73",
     "materiais": "Pneus usados em bom estado e conservados.",
-    "horario": "Segunda a sábado das 8h30 às 20h; Domingo das 8h às 13h",
+    "horario": "Segunda a sábado das 08h30 às 20h; Domingo das 08h às 13h",
     "link_maps": "https://maps.app.goo.gl/sckeNQnoNQNHzmCVA",
     "tipo_ponto": "Borracharia",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 91734-2252",
-    "numero_levantamento_isabella": 18,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "Av. Mal. Rondon, 73 - Jardim Estação, Salto",
-    "horario_pesquisa": "Segunda à sábado das 08:30 às 20:00\nDomingo das 08:00 às 13:00",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.28876980025303,
+    "lat": -23.210363068382577
   },
   {
     "id": 41,
-    "nome": "FP borracharia",
+    "nome": "FP Borracharia",
     "bairro": "Planalto",
     "categoria": "outros",
     "endereco": "R. Japão, 702",
     "materiais": "Pneus usados em bom estado e conservados.",
-    "horario": "Segunda a sexta das 8h às 18h; Sábado das 8h às 17h",
+    "horario": "Segunda a sexta das 08h às 18h; Sábado das 08h às 17h",
     "link_maps": "https://maps.app.goo.gl/dLvaTJ1CRFB8eak88",
     "tipo_ponto": "Borracharia",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 97121-2025",
-    "numero_levantamento_isabella": 19,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Japão, 702 - Planalto, Salto",
-    "horario_pesquisa": "Segunda à sexta das 08:00 às 18:00\nSábado das 08:00 às 17:00",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.271743892038266,
+    "lat": -23.187977449531964
   },
   {
     "id": 42,
-    "nome": "Borracharia móvel da Paty",
+    "nome": "Borracharia Móvel da Paty",
     "bairro": "Jardim São Judas Tadeu",
     "categoria": "outros",
     "endereco": "R. São João, 168",
@@ -1195,20 +1056,13 @@
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 99698-5666",
-    "numero_levantamento_isabella": 20,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. São João, 168 - Jardim São Judas Tadeu, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) 24 horas",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.30603520239751,
+    "lat": -23.1799095012376
   },
   {
     "id": 43,
-    "nome": "Borracharia móvel CL",
+    "nome": "Borracharia Móvel CL",
     "bairro": "Jardim São Judas Tadeu",
     "categoria": "outros",
     "endereco": "R. São José, 186",
@@ -1219,40 +1073,26 @@
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 95092-7656",
-    "numero_levantamento_isabella": 21,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. São José, 186 - Jardim São Judas Tadeu, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) 24 horas",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.30365907161671,
+    "lat": -23.1793221373541
   },
   {
     "id": 44,
     "nome": "Esquina Pneus Borracharia",
-    "bairro": "Jardim das Nacoes",
+    "bairro": "Jardim das Nações",
     "categoria": "outros",
     "endereco": "R. Mal. Deodoro da Fonseca, 2481",
     "materiais": "Pneus usados em bom estado e conservados.",
-    "horario": "Segunda a sexta das 8h às 19h; Sábado das 8h às 16h",
+    "horario": "Segunda a sexta das 08h às 19h; Sábado das 08h às 16h",
     "link_maps": "https://maps.app.goo.gl/2yh8jCNWL6MJuJ6G9",
     "tipo_ponto": "Borracharia",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(11) 99669-9966",
-    "numero_levantamento_isabella": 22,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Mal. Deodoro da Fonseca, 2481 - Jardim das Nacoes, Salto",
-    "horario_pesquisa": "Segunda à sexta das 08:00 às 19:00\nSábado das 08:00 às 16:00",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.275096499314564,
+    "lat": -23.195746935950762
   },
   {
     "id": 45,
@@ -1261,22 +1101,15 @@
     "categoria": "outros",
     "endereco": "R. das Nações Unidas, 1023",
     "materiais": "Pneus usados em bom estado e conservados.",
-    "horario": "Segunda a sexta das 6h às 22h; Sábado das 6h às 22h; Domingo das 7h30 às 14h",
+    "horario": "Segunda a sexta das 06h às 22h; Sábado das 06h às 22h; Domingo das 07h30 às 14h",
     "link_maps": "https://maps.app.goo.gl/X4XjeBLxWCNYDad57",
     "tipo_ponto": "Borracharia",
     "categorias": [
       "outros"
     ],
-    "materiais_pesquisados": [
-      "Pneus usados em bom estado e conservados."
-    ],
     "telefone": "(19) 99962-9719",
-    "numero_levantamento_isabella": 23,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. das Nações Unidas, 1023 - Jardim Planalto, Salto",
-    "horario_pesquisa": "Segunda à sexta das 06:00 às 22:00\nSábado das 06:00 às 22:00\nDomingo das 07:30 às 14:00",
-    "materiais_texto_fonte": "Pneus usados em bom estado e conservados."
+    "lng": -47.27203153668593,
+    "lat": -23.184413808125083
   },
   {
     "id": 46,
@@ -1285,24 +1118,15 @@
     "categoria": "medicamentos",
     "endereco": "Av. Jose Maria Marques de Oliveira, 422",
     "materiais": "Medicamentos domiciliares vencidos ou em desuso; caixas/embalagens de medicamentos e bulas.",
-    "horario": "Todos os dias das 7h às 23h",
+    "horario": "Todos os dias das 07h às 23h",
     "link_maps": "https://maps.app.goo.gl/bvDrQs8YzbNjQX7TA",
     "tipo_ponto": "Farmácia",
     "categorias": [
       "medicamentos"
     ],
-    "materiais_pesquisados": [
-      "Medicamentos domiciliares vencidos e em desuso",
-      "Caixas/embalagens de remédio",
-      "Bulas"
-    ],
     "telefone": "(11) 4021-5515",
-    "numero_levantamento_isabella": 24,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "Av. Jose Maria Marques de Oliveira, 422 - Vila Norma, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) das 07:00 às 23:00",
-    "materiais_texto_fonte": "Medicamentos domiciliares vencidos e em desuso;\nCaixas/embalagens de remédio;\nBulas"
+    "lng": -47.31158440969413,
+    "lat": -23.183029048853616
   },
   {
     "id": 47,
@@ -1311,24 +1135,15 @@
     "categoria": "medicamentos",
     "endereco": "Av. Jose Maria Marques de Oliveira, 538",
     "materiais": "Medicamentos domiciliares vencidos ou em desuso; caixas/embalagens de medicamentos e bulas.",
-    "horario": "Todos os dias das 7h às 0h",
+    "horario": "Todos os dias das 07h às 00h",
     "link_maps": "https://maps.app.goo.gl/3CEPbFp9idrwPLMv6",
     "tipo_ponto": "Farmácia",
     "categorias": [
       "medicamentos"
     ],
-    "materiais_pesquisados": [
-      "Medicamentos domiciliares vencidos e em desuso",
-      "Caixas/embalagens de remédio",
-      "Bulas"
-    ],
     "telefone": "(11) 4021-2862",
-    "numero_levantamento_isabella": 25,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "Av. Jose Maria Marques de Oliveira, 538 - Vila Norma, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) das 07:00 às 00:00",
-    "materiais_texto_fonte": "Medicamentos domiciliares vencidos e em desuso;\nCaixas/embalagens de remédio;\nBulas"
+    "lng": -47.31141386973251,
+    "lat": -23.18184139527105
   },
   {
     "id": 48,
@@ -1337,24 +1152,15 @@
     "categoria": "medicamentos",
     "endereco": "R. Nove de Julho, 252",
     "materiais": "Medicamentos domiciliares vencidos ou em desuso; caixas/embalagens de medicamentos e bulas.",
-    "horario": "Todos os dias das 7h às 23h",
+    "horario": "Todos os dias das 07h às 23h",
     "link_maps": "https://maps.app.goo.gl/CT5B7LcHSwS2nGax7",
     "tipo_ponto": "Farmácia",
     "categorias": [
       "medicamentos"
     ],
-    "materiais_pesquisados": [
-      "Medicamentos domiciliares vencidos e em desuso",
-      "Caixas/embalagens de remédio",
-      "Bulas"
-    ],
     "telefone": "(11) 4028-7822",
-    "numero_levantamento_isabella": 26,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Nove de Julho, 252 - Centro, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) das 07:00 às 23:00",
-    "materiais_texto_fonte": "Medicamentos domiciliares vencidos e em desuso;\nCaixas/embalagens de remédio;\nBulas"
+    "lng": -47.29253578248551,
+    "lat": -23.205926749506517
   },
   {
     "id": 49,
@@ -1363,24 +1169,15 @@
     "categoria": "medicamentos",
     "endereco": "Av. Jose Maria Marques de Oliveira, 290",
     "materiais": "Medicamentos domiciliares vencidos ou em desuso; caixas/embalagens de medicamentos e bulas.",
-    "horario": "Todos os dias das 7h às 23h",
+    "horario": "Todos os dias das 07h às 23h",
     "link_maps": "https://maps.app.goo.gl/sJDHCbDH8g8CHda1A",
     "tipo_ponto": "Farmácia",
     "categorias": [
       "medicamentos"
     ],
-    "materiais_pesquisados": [
-      "Medicamentos domiciliares vencidos e em desuso",
-      "Caixas/embalagens de remédio",
-      "Bulas"
-    ],
     "telefone": "(11) 96483-3320",
-    "numero_levantamento_isabella": 27,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "Av. Jose Maria Marques de Oliveira, 290 - Vila Norma, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) das 07:00 às 23:00",
-    "materiais_texto_fonte": "Medicamentos domiciliares vencidos e em desuso;\nCaixas/embalagens de remédio;\nBulas"
+    "lng": -47.31157128781196,
+    "lat": -23.18449794867896
   },
   {
     "id": 50,
@@ -1395,18 +1192,9 @@
     "categorias": [
       "medicamentos"
     ],
-    "materiais_pesquisados": [
-      "Medicamentos domiciliares vencidos e em desuso",
-      "Caixas/embalagens de remédio",
-      "Bulas"
-    ],
     "telefone": "(11) 4028-1569",
-    "numero_levantamento_isabella": 28,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. José Galvão, 225 - Centro, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) 24 horas",
-    "materiais_texto_fonte": "Medicamentos domiciliares vencidos e em desuso;\nCaixas/embalagens de remédio;\nBulas"
+    "lng": -47.29372067351839,
+    "lat": -23.2088805429154
   },
   {
     "id": 51,
@@ -1421,17 +1209,8 @@
     "categorias": [
       "medicamentos"
     ],
-    "materiais_pesquisados": [
-      "Medicamentos domiciliares vencidos e em desuso",
-      "Caixas/embalagens de remédio",
-      "Bulas"
-    ],
     "telefone": "(11) 97333-6281",
-    "numero_levantamento_isabella": 29,
-    "fonte_dados": "DOC_OndEco_Novos_Enderecos_Pontos_De_Descarte_2026-11-08.docx",
-    "data_levantamento": "2026-11-08",
-    "endereco_pesquisa": "R. Nove de Julho, 658 - Centro, Salto",
-    "horario_pesquisa": "Domingo à domingo (todos os dias) 24 horas",
-    "materiais_texto_fonte": "Medicamentos domiciliares vencidos e em desuso;\nCaixas/embalagens de remédio;\nBulas"
+    "lng": -47.29010835889871,
+    "lat": -23.20301274567609
   }
 ]
