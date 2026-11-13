@@ -1,11 +1,11 @@
 # Metodologia de Desenvolvimento
-## Projeto OndEco Salto | Outubro 2026
+## Projeto ondEco Salto | Outubro 2026
 
 ---
 
 ### 1. Visão Geral da Abordagem Técnica
 
-A solução **OndEco Salto** foi desenvolvida com foco em simplicidade, acessibilidade e baixo custo de manutenção.  
+A solução **ondEco Salto** foi desenvolvida com foco em simplicidade, acessibilidade e baixo custo de manutenção.  
 Optou-se por uma **arquitetura serverless** (sem servidor back-end próprio).  
 Isso significa que toda a aplicação funciona diretamente no navegador do usuário, sem necessidade de banco de dados complexo ou servidor dedicado.
 
@@ -47,7 +47,7 @@ Todo esse processo ocorre **no lado do cliente** (no navegador), sem necessidade
 
 ### 4. Acessibilidade e Inclusão Digital (WCAG 2.1 AA / e-MAG)
 
-A interface do OndEco Salto foi projetada sob as diretrizes de acessibilidade do Governo Federal (e-MAG) e da W3C (WCAG 2.1 AA), priorizando o uso por pessoas com diferentes necessidades:
+A interface do ondEco Salto foi projetada sob as diretrizes de acessibilidade do Governo Federal (e-MAG) e da W3C (WCAG 2.1 AA), priorizando o uso por pessoas com diferentes necessidades:
 
 - **Escalabilidade (`rem`):** Dimensionamento relativo que permite o zoom nativo do navegador sem quebra de layout.
 - **Navegação por Teclado:** Suporte completo a atalhos com indicadores de foco visíveis (`:focus-visible`).
