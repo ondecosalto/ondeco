@@ -20,13 +20,14 @@ Essa escolha permite:
 
 ### 2. Tecnologias Utilizadas
 
-| Tecnologia            | Função no Projeto                                      | Justificativa                                        |
-|-----------------------|--------------------------------------------------------|------------------------------------------------------|
-| **HTML5**             | Estrutura semântica das páginas                        | Organização clara e acessível do conteúdo            |
-| **CSS3**              | Estilização e design responsivo (*Mobile First*)       | Adaptação automática para celulares e desktops       |
-| **JavaScript (ES6+)** | Lógica de busca, filtros e carregamento dinâmico       | Interatividade em tempo real sem recarregar a página |
-| **JSON**              | Banco de dados estático (`pontos.json`)                | Leve, fácil de atualizar e não precisa de servidor   |
-| **GitHub Pages**      | Hospedagem e publicação automática                     | Gratuita, estável e integrada ao controle de versão  |
+| Tecnologia | Função no Projeto | Justificativa |
+| --- | --- | --- |
+| HTML5 | Estrutura semântica das páginas | Organização clara e acessível do conteúdo |
+| CSS3 | Estilização e design responsivo (Mobile First) | Adaptação automática para celulares e desktops |
+| JavaScript (ES6+) | Lógica de busca, filtros e carregamento dinâmico | Interatividade em tempo real sem recarregar a página |
+| JSON | Banco de dados estático (pontos.json) | Leve, fácil de atualizar e não precisa de servidor |
+| Leaflet 1.9.4 + OSM | Mapa interativo com marcadores e popups | Biblioteca leve, gratuita e amplamente suportada |
+| GitHub Pages | Hospedagem e publicação automática | Gratuita, estável e integrada ao controle de versão |
 
 ---
 
