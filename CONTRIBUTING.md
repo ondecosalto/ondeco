@@ -1,6 +1,6 @@
-# Guia de contribuição e workflow — OndEco Salto
+# Guia de contribuição e workflow — ondEco Salto
 
-Este documento estabelece as diretrizes e padrões de desenvolvimento para a equipe do projeto **OndEco Salto**. Para manter o histórico limpo e a aplicação estável, todos os colaboradores devem seguir este fluxo.
+Este documento estabelece as diretrizes e padrões de desenvolvimento para a equipe do projeto **ondEco Salto**. Para manter o histórico limpo e a aplicação estável, todos os colaboradores devem seguir este fluxo.
 
 ---
 
